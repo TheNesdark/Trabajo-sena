@@ -1,3 +1,8 @@
+<?php include '../config.php'; 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +12,30 @@
 </head>
 <body>
     <?php include '../header.php'; ?>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Lista de Usuarios</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($usuarios as $usuario): ?>
+                <tr>
+                    <td><?php echo $usuario['usuario']; ?></td>
+                    <td><?php echo $usuario['nombre']; ?></td>
+                    <td><?php echo $usuario['email']; ?></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $usuario['usuario']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="delete.php?id=<?php echo $usuario['usuario']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 </body>
 </html>
