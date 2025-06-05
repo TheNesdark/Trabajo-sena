@@ -14,7 +14,7 @@ include '../../controller/consultas.php';
     <?php include '../header.php'; ?>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Lista de Usuarios</h1>
-        <table class="table table-striped">
+        <table class="table table-striped border-black" style="border: 2px solid black;">
             <thead>
                 <tr>
                     <th>Usuario</th>
