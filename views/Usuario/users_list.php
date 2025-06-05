@@ -1,6 +1,6 @@
-<?php include '../config.php'; 
-
-
+<?php ; 
+include '../../config.php';
+include '../../controller/consultas.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($usuarios as $usuario): ?>
+                <?php 
+                    $usuarios = consultar("usuarios");
+                    foreach ($usuarios as $usuario): ?>
                 <tr>
                     <td><?php echo $usuario['usuario']; ?></td>
                     <td><?php echo $usuario['nombre']; ?></td>
@@ -32,6 +34,7 @@
                     <td>
                         <a href="edit.php?id=<?php echo $usuario['usuario']; ?>" class="btn btn-warning btn-sm">Editar</a>
                         <a href="delete.php?id=<?php echo $usuario['usuario']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="modificar.php?id=<?php echo $usuario['usuario']; ?>" class="btn btn-info btn-sm">Modificar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
