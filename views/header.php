@@ -12,14 +12,24 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active text-white" aria-current="page" href="\Trabajo-sena\views\aprendices\aprendiz.php">aprendices</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">About</a>
+                            <a class="nav-link text-white" href="\Trabajo-sena\views\ficha\ficha.php">ficha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Contact</a>
+                            <a class="nav-link text-white" href="\Trabajo-sena\views\motivo\motivo.php">motivo</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="\Trabajo-sena\views\acciones\acciones.php">acciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="\Trabajo-sena\views\programa\programa.php">programas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="\Trabajo-sena\views\reportes\reportes.php">reportes</a>
+                        </li>
+                         
                     </ul>
                 </div>
             </div>
