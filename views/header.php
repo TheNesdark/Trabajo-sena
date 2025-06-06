@@ -12,25 +12,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="\Trabajo-sena\views\aprendices\aprendiz.php">aprendices</a>
+                            <a class="nav-link active text-white" aria-current="page" href="/Trabajo-sena/views/aprendices/aprendiz.php">aprendices</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\ficha\ficha.php">ficha</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/ficha/ficha.php">ficha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\motivo\motivo.php">motivo</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/motivo/motivo.php">motivo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\acciones\acciones.php">acciones</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/acciones/acciones.php">acciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\programa\programa.php">programas</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/programa/programa.php">programas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\reportes\reportes.php">reportes</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/reportes/reportes.php">reportes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="views\Usuario\users_list.php">Usuarios</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/Usuario/users_list.php">Usuarios</a>
                         </li>
 
                     </ul>
