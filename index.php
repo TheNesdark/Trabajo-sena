@@ -29,6 +29,7 @@ include 'controller/consultas.php';
                     <th>Nficha</th>
                     <th>fecha</th>
                     <th>estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,10 +43,11 @@ include 'controller/consultas.php';
                     <td><?php echo $reporte['nficha']; ?></td>
                     <td><?php echo $reporte['fecha']; ?></td>
                     <td><?php echo $reporte['estado']; ?></td>
+
                     <td>
-                        <a href="/Trabajo-sena/views/reportes/editar_reporte.php?id=<?php echo $reporte['idaprendiz']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="/Trabajo-sena/views/reportes/eliminar_reporte.php?id=<?php echo $reporte['idaprendiz']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
-                        <a href="/Trabajo-sena/views/reportes/modificar_reporte.php?id=<?php echo $reporte['idaprendiz']; ?>" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="/Trabajo-sena/views/reportes/editar_reporte.php?id=<?php echo $reporte['idreporte']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="/Trabajo-sena/controller/eliminar.php?id=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">Eliminar</a>
+
                     </td>
                 </tr>
                 <?php endforeach; ?>
