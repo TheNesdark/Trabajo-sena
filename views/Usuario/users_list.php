@@ -25,7 +25,7 @@ include '../../controller/consultas.php';
             </thead>
             <tbody>
                 <?php 
-                    $usuarios = consultar("usuarios");
+                    $usuarios = listar("usuarios");
                     foreach ($usuarios as $usuario): ?>
                 <tr>
                     <td><?php echo $usuario['usuario']; ?></td>

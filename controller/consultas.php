@@ -1,6 +1,6 @@
 <?php
 include '../../config.php';
-function Consultar($tabla){
+function listar($tabla){
     global $pdo;
     try {
         $stmt = $pdo->query("SELECT * FROM $tabla");
