@@ -14,6 +14,7 @@ include '../controller/consultas.php';
     <div class="container mt-5">
         <h1 class="text-center mb-4">Motivos</h1>
         <table class="table table-striped border-black" style="border: 2px solid black;">
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#formModal">nuevo motivo</button>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -31,7 +32,6 @@ include '../controller/consultas.php';
                     <td>
                         <a href="edit.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-warning btn-sm">Editar</a>
                         <a href="delete.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">nuevo motivo</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
