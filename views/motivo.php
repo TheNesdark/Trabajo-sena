@@ -1,7 +1,7 @@
 
 <?php
-include 'config.php';
-include 'controller/.php';
+include '../config.php';
+include '../controller/consultas.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,33 @@ include 'controller/.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <h1 class="text-center my-4">Motivo</h1>
+     <?php include 'header.php'; ?>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Motivos</h1>
+        <table class="table table-striped border-black" style="border: 2px solid black;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    $motivos = listar("motivo");
+                    foreach ($motivos as $motivo): ?>
+                <tr>
+                    <td><?php echo $motivo['idmotivo']; ?></td>
+                    <td><?php echo $motivo['descripcion']; ?></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="delete.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">nuevo motivo</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
 
 
@@ -18,9 +44,7 @@ include 'controller/.php';
 
 
     <!-- Botón para abrir el modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
-    Abrir Formulario
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
