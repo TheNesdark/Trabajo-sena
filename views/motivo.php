@@ -37,16 +37,5 @@ include '../controller/consultas.php';
                 <?php endforeach; ?>
             </tbody>
         </table>
-
-
-
-
-
-
-    <!-- Botón para abrir el modal -->
-
-
-
-
 </body>
 </html>

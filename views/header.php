@@ -30,7 +30,7 @@
                             <a class="nav-link text-white" href="/Trabajo-sena/views/reportes.php">reportes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/Trabajo-sena/views/users_list.php">Usuarios</a>
+                            <a class="nav-link text-white" href="/Trabajo-sena/views/Usuarios.php">Usuarios</a>
                         </li>
 
                     </ul>
