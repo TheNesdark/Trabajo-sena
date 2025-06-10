@@ -30,8 +30,8 @@
                     <td><?php echo $motivo['idmotivo']; ?></td>
                     <td><?php echo $motivo['descripcion']; ?></td>
                     <td>
-                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editMotivoModal" onclick="cargarDatosMotivo(<?php echo $motivo['idmotivo']; ?>, '<?php echo $motivo['descripcion']; ?>')">Editar</button>
-                        <a href="../controller/Motivos/Eliminar_Motivos.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editMotivoModal" onclick="cargarDatos(<?php echo $motivo['idmotivo']; ?>, '<?php echo $motivo['descripcion']; ?>')">Editar</button>
+                        <a href="../controller/Motivos/Eliminar_Motivos.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta acción?')">Eliminar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -39,7 +39,9 @@
         </table>
 
         <script>
-            function cargarDatosMotivo(idmotivo, descripcion) {
+
+        include 'Alertas.php';
+            function cargarDatos(idmotivo, descripcion) {
                 document.getElementById('editIdMotivo').value = idmotivo;
                 document.getElementById('editDescripcion').value = descripcion;
             }

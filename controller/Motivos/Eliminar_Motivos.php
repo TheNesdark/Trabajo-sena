@@ -9,7 +9,8 @@ if (isset($_GET['id'])) {
         header("Location: ../../views/motivo.php?mensaje=eliminado");
         exit();
     } catch (PDOException $e) {
-        die("Error al eliminar el motivo: " . $e->getMessage());
+        header("Location: ../../views/motivo.php?mensaje=error");
+        exit();
     }
 }
 ?>

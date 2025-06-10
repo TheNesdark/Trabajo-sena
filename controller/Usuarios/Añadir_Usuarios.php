@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../../views/Usuarios.php?mensaje=agregado");
         exit();
     } catch (PDOException $e) {
-        die("Error al insertar el usuario: " . $e->getMessage());
+        header("Location: ../../views/Usuarios.php?mensaje=error");
+        exit();
     }
 }
 

@@ -49,7 +49,7 @@
 
 <script>
 <?php 
-    include '../controller/Usuarios/Alertas.php';
+    include 'Alertas.php';
 ?>
 
 function CargarDatos(usuario, nombre, email) {

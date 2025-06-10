@@ -7,7 +7,8 @@ function listarUsuarios() {
         $stmt = $pdo->query("SELECT * FROM usuarios");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        die("Error al consultar la tabla usuarios: " . $e->getMessage());
+        header("Location: ../../views/Usuarios.php?mensaje=error");
+        exit();
     }
 }
 

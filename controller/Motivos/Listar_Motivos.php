@@ -7,7 +7,8 @@ function listarMotivos() {
         $stmt = $pdo->query("SELECT * FROM motivo");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        die("Error al consultar la tabla motivo: " . $e->getMessage());
+        header("Location: ../../views/motivo.php?mensaje=error");
+        exit();
     }
 }
 ?>

@@ -8,7 +8,8 @@ if (isset($_GET['usuario'])) {
         header("Location: ../../views/Usuarios.php?mensaje=eliminado");
         exit();
     } catch (PDOException $e) {
-        die("Error al eliminar el usuario: " . $e->getMessage());
+        header("Location: ../../views/Usuarios.php?mensaje=error");
+        exit();
     }
 }
 ?>
