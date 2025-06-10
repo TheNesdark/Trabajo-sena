@@ -24,11 +24,11 @@
                             <i class="fa-solid fa-building-columns" style="color: #cee891;"></i>
                             Personas
                         </h4>
-                        <a href="views/clientes.php" class="module-btn btn-personas">
+                        <a href="views/aprendiz.php" class="module-btn btn-personas">
                             <i class="fas fa-address-book"></i>
                             Aprendiz
                         </a>
-                        <a href="views/clientes.php" class="module-btn btn-personas">
+                        <a href="views\Usuarios.php" class="module-btn btn-personas">
                             <i class="fas fa-address-book"></i>
                             Usuarios
                         </a>
@@ -41,7 +41,7 @@
                             <i class="fa-solid fa-book-bookmark" style="color: #50c8c6;"></i>
                             Cursos
                         </h4>
-                        <a href="views/gastos.php" class="module-btn btn-cursos">
+                        <a href="views/programa.php" class="module-btn btn-cursos">
                             <i class="fas fa-money7-bill-wave"></i>
                             Programas
                         </a>
