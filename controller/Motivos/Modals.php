@@ -31,7 +31,8 @@
             </div>
             <form action="../controller/Motivos/Editar_Motivos.php" method="POST">
                 <div class="modal-body">
-                    <input type="hidden" id="editIdMotivo" name="idmotivo">
+                    <label for="editDescripcion" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="editIdMotivo" name="idmotivo" readonly>
                     <div class="mb-3">
                         <label for="editDescripcion" class="form-label">Descripción</label>
                         <input type="text" class="form-control" id="editDescripcion" name="descripcion" required>
