@@ -43,6 +43,7 @@ include '../controller/Acciones/Listar_Acciones.php';
         </table>
     </div>
 
+
 <script>
 <?php include 'Alertas.php'; ?>
     function CargarDatos(id, descripcion) {
@@ -50,5 +51,6 @@ include '../controller/Acciones/Listar_Acciones.php';
         document.getElementById('editDescripcion').value = descripcion;
     }
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>

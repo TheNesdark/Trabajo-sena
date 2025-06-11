@@ -37,7 +37,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-
         <script>
 
         include 'Alertas.php';
@@ -46,6 +45,6 @@
                 document.getElementById('editDescripcion').value = descripcion;
             }
         </script>
-
+<?php include 'footer.php'; ?>
 </body>
 </html>

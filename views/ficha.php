@@ -44,7 +44,6 @@
             </tbody>
         </table>
     </div>
-
 <script>
 <?php include 'Alertas.php'; ?>
 
@@ -53,5 +52,6 @@ function CargarDatos(id, numero, idprograma) {
     document.getElementById('editIdPrograma').value = idprograma;
 }
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>
