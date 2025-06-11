@@ -11,10 +11,11 @@
     <?php include 'header.php'; 
         include '../controller/Motivos/Modals.php';
     ?>
+    <div id="alerta"></div>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Motivos</h1>
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMotivoModal">nuevo motivo</button>
         <table class="table table-striped border-black" style="border: 2px solid black;">
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMotivoModal">nuevo motivo</button>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -30,21 +31,27 @@
                     <td><?php echo $motivo['idmotivo']; ?></td>
                     <td><?php echo $motivo['descripcion']; ?></td>
                     <td>
-                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editMotivoModal" onclick="cargarDatos(<?php echo $motivo['idmotivo']; ?>, '<?php echo $motivo['descripcion']; ?>')">Editar</button>
-                        <a href="../controller/Motivos/Eliminar_Motivos.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta acción?')">Eliminar</a>
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editMotivoModal" onclick="cargarDatos(<?php echo $motivo['idmotivo']; ?>, '<?php echo htmlspecialchars($motivo['descripcion'], ENT_QUOTES, 'UTF-8'); ?>')">
+                            Editar
+                        </button>
+                        <a href="../controller/Motivos/Eliminar_Motivos.php?id=<?php echo $motivo['idmotivo']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este motivo?')">
+                            Eliminar
+                        </a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <script>
-
-        include 'Alertas.php';
             function cargarDatos(idmotivo, descripcion) {
                 document.getElementById('editIdMotivo').value = idmotivo;
                 document.getElementById('editDescripcion').value = descripcion;
             }
         </script>
+    </div>
 <?php include 'footer.php'; ?>
+<script>
+    <?php include 'Alertas.php'; ?>
+</script>
 </body>
 </html>

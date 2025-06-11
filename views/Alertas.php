@@ -2,13 +2,13 @@
 let alerta = document.getElementById('alerta');
 <?php if (isset($_GET['mensaje'])): ?>
     <?php if ($_GET['mensaje'] === 'agregado'): ?>
-        alerta.innerHTML = '<div class="alert alert-success slide-out">Programa agregado exitosamente.</div>';
+        alerta.innerHTML = '<div class="alert alert-success slide-out">agregado exitosamente.</div>';
     <?php elseif ($_GET['mensaje'] === 'eliminado'): ?>
-        alerta.innerHTML = '<div class="alert alert-success slide-out">Programa eliminado exitosamente.</div>';
+        alerta.innerHTML = '<div class="alert alert-success slide-out">eliminado exitosamente.</div>';
     <?php elseif ($_GET['mensaje'] === 'error'): ?>
         alerta.innerHTML = '<div class="alert alert-danger slide-out">Se ha presentado un error.</div>';
     <?php elseif ($_GET['mensaje'] === 'actualizado'): ?>
-        alerta.innerHTML = '<div class="alert alert-success slide-out">Programa actualizado exitosamente.</div>';
+        alerta.innerHTML = '<div class="alert alert-success slide-out">actualizado exitosamente.</div>';
     <?php elseif ($_GET['mensaje'] === 'errorprograma'): ?>
         alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el programa porque contiene fichas activas</div>';
     <?php elseif ($_GET['mensaje'] === 'errorficha'): ?>

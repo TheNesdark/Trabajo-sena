@@ -12,6 +12,7 @@ include '../config.php';
 include '../controller/Reportes/Listar_Reportes.php';
 include 'header.php';
 ?>
+<div id="alerta"></div>
 <div class="container mt-5">
         <h1 class="text-center mb-4">Lista de reportes</h1>
         <table class="table table-striped border-black" style="border: 2px solid black;">
@@ -44,8 +45,8 @@ include 'header.php';
                 <td><?php echo $reporte['estado']; ?></td>
                 <td><?php echo $reporte['fecha']; ?></td>
                 <td>
-                <a href="/Trabajo-sena/views/reportes/editar_reporte.php?id=<?php echo $reporte['idreporte']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                <a href="/Trabajo-sena/controller/eliminar.php?id=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">Eliminar</a>
+                <a href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">Eliminar</a>
                 </td>
             </tr>
                 <?php endforeach; ?>
@@ -55,5 +56,8 @@ include 'header.php';
 <?php include 'footer.php'; ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    <?php include 'Alertas.php'; ?>
+</script>
 </html>
 

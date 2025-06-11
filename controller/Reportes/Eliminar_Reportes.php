@@ -1,9 +1,10 @@
 <?php
 include '../../config.php';
-if (isset($_GET['id'])) {
-    $idreporte = $_GET['id'];
+if (isset($_GET['idreporte'])) {
+    $idreporte = $_GET['idreporte'];
     try {
-        $stmt = $pdo->prepare("DELETE FROM reporte WHERE idreporte = ?");
+        global $pdo;
+        $stmt = $pdo->prepare("DELETE FROM reportes WHERE idreporte = ?");
         $stmt->execute([$idreporte]);
         header("Location: ../../views/reportes.php?mensaje=eliminado");
         exit();
