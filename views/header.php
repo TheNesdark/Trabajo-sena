@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Trabajo-sena/views/crear_reporte.php">
+                            <a class="nav-link" href="/Trabajo-sena/views/Nuevo_Reporte.php">
                                 <i class="fas fa-plus-circle"></i>Crear Reporte
                             </a>
                         </li>
