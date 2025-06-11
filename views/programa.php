@@ -45,7 +45,6 @@ include '../controller/Programa/Listar_Programa.php';
             </tbody>
         </table>
     </div>
-
 <script>
 <?php include 'Alertas.php'; ?>
     function CargarDatos(id, nombre) {
@@ -57,5 +56,6 @@ include '../controller/Programa/Listar_Programa.php';
 
     }
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>

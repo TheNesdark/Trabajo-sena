@@ -46,7 +46,7 @@
             </tbody>
         </table>
     </div>
-
+<?php include 'views/footer.php'; ?>
 <script>
 <?php 
     include 'Alertas.php';
@@ -83,5 +83,6 @@ function verificarUsuarioExistente() {
 }
 
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>
