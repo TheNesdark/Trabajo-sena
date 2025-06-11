@@ -15,6 +15,10 @@ include '../controller/Aprendices/Listar_Aprendices.php';
 include '../controller/Aprendices/Modals.php';
 ?>
 <div id="alerta"></div>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Lista de Aprendices</h1>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAprendizModal">Añadir Aprendiz</button>
 <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
         <h1> <i class="fa-solid fa-graduation-cap" style="color: #50c8c6"></i> Lista de Aprendices</h1>
     </div>
@@ -69,7 +73,6 @@ include '../controller/Aprendices/Modals.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 <?php include 'Alertas.php'; ?>
-
 function CargarDatos(id, tipodoc, nombres, apellidos, celular, email, direccion) {
     document.getElementById('editIdAprendiz').value = id;
     document.getElementById('editTipodoc').value = tipodoc;
