@@ -27,12 +27,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/Trabajo-sena/views/crear_reporte.php">
                                 <i class="fas fa-plus-circle"></i>Crear Reporte
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/Trabajo-sena/views/cerrar_sesion.php">
                                 <i class="fas fa-sign-out-alt me-1"></i> Cerrar Sesión
                             </a>
                         </li>
