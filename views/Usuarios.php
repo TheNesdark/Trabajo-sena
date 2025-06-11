@@ -46,7 +46,7 @@
             </tbody>
         </table>
     </div>
-<?php include 'views/footer.php'; ?>
+
 <script>
 <?php 
     include 'Alertas.php';
