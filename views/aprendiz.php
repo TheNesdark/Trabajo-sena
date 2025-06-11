@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendices</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/trabajo-sena/assets/css/style.css" rel="stylesheet">
+    
 </head>
 <body>
 <?php
@@ -13,22 +15,28 @@ include '../controller/Aprendices/Listar_Aprendices.php';
 include '../controller/Aprendices/Modals.php';
 ?>
 <div id="alerta"></div>
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Lista de Aprendices</h1>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAprendizModal">Añadir Aprendiz</button>
+<div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
+        <h1> <i class="fa-solid fa-graduation-cap" style="color: #50c8c6"></i> Lista de Aprendices</h1>
     </div>
-    <table class="table table-striped border-black" style="border: 2px solid black;">
-        <thead>
+<div class="d-flex justify-content-end mb-2 "style="margin-right: 20px;">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
+        <i class="fa-solid fa-plus"></i> Añadir Aprendiz
+    </button>
+</div>
+<div class="table-container" style="max-width: 98%; margin:auto;">
+    
+<div class="table-responsive">
+    <table class="table table-bordered mb-0">
+        <thead >
             <tr>
-                <th>Documento</th>
-                <th>Tipo de documento</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Celular</th>
-                <th>Correo</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
+                <th class='text-center w-20'><i class="fa-solid fa-id-card-clip"></i> Documento</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-ellipsis-vertical"></i> Tipo de documento</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-pencil"></i> Nombre</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-pencil"></i> Apellido</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-phone"></i> Celular</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-envelope"></i> Correo</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-map-marker-alt"></i> Dirección</th>
+                <th class='text-center w-20'> <i class="fa-solid fa-cog"></i> Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -36,21 +44,27 @@ include '../controller/Aprendices/Modals.php';
             $aprendices = listarAprendices();
             foreach ($aprendices as $aprendiz): ?>
                 <tr>
-                    <td><?php echo $aprendiz['idaprendiz']; ?></td>
-                    <td><?php echo $aprendiz['tipodoc']; ?></td>
-                    <td><?php echo $aprendiz['nombres']; ?></td>
-                    <td><?php echo $aprendiz['apellidos']; ?></td>
-                    <td><?php echo $aprendiz['celular']; ?></td>
-                    <td><?php echo $aprendiz['email']; ?></td>
-                    <td><?php echo $aprendiz['direccion']; ?></td>
-                    <td>
-                        <a href="../controller/Aprendices/Eliminar_Aprendices.php?id=<?php echo $aprendiz['idaprendiz']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este aprendiz?');">Eliminar</a>
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editAprendizModal" onclick="CargarDatos('<?php echo $aprendiz['idaprendiz']; ?>', '<?php echo htmlspecialchars($aprendiz['tipodoc']); ?>', '<?php echo htmlspecialchars($aprendiz['nombres']); ?>', '<?php echo htmlspecialchars($aprendiz['apellidos']); ?>', '<?php echo htmlspecialchars($aprendiz['celular']); ?>', '<?php echo htmlspecialchars($aprendiz['email']); ?>', '<?php echo htmlspecialchars($aprendiz['direccion']); ?>')">Editar</button>
+                    <td class='text-center'><?php echo $aprendiz['idaprendiz']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['tipodoc']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['nombres']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['apellidos']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['celular']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['email']; ?></td>
+                    <td class='text-center'><?php echo $aprendiz['direccion']; ?></td>
+                    <td class='text-center'>
+                        <a href="../controller/Aprendices/Eliminar_Aprendices.php?id=<?php echo $aprendiz['idaprendiz']; ?>" class='btn btn-danger btn-sm me-1' onclick="return confirm('¿Está seguro de eliminar este aprendiz?');">
+                            
+                            <i class='fas fa-trash'></i>
+                        </a>
+                        <button type="button" class='btn btn-warning btn-sm me-1' data-bs-toggle="modal" data-bs-target="#editAprendizModal" onclick="CargarDatos('<?php echo $aprendiz['idaprendiz']; ?>', '<?php echo htmlspecialchars($aprendiz['tipodoc']); ?>', '<?php echo htmlspecialchars($aprendiz['nombres']); ?>', '<?php echo htmlspecialchars($aprendiz['apellidos']); ?>', '<?php echo htmlspecialchars($aprendiz['celular']); ?>', '<?php echo htmlspecialchars($aprendiz['email']); ?>', '<?php echo htmlspecialchars($aprendiz['direccion']); ?>')">
+                            <i class='fas fa-edit'></i>
+                        </button>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
