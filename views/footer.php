@@ -24,14 +24,11 @@
                     <!-- Enlaces de Administración -->
                     <div class="col-lg-5 col-md-6 col-12 mb-2 mb-lg-0">
                         <div class="admin-actions justify-content-center justify-content-lg-start">
-                            <a href="views\reportes.php" class="footer-link">
+                            <a href="\trabajo-sena\index.php" class="footer-link">
                                 <i class="fas fa-tachometer-alt"></i>Panel
                             </a>
-                            <a href="views/Usuarios.php" class="footer-link">
+                            <a href="\trabajo-sena\views\Usuarios.php" class="footer-link">
                                 <i class="fas fa-users"></i>Usuarios
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-cogs"></i>Config
                             </a>
                             <a href="#" class="footer-link">
                                 <i class="fas fa-headset"></i>Soporte
