@@ -16,7 +16,7 @@
                     <!-- Información del Sistema -->
                     <div class="col-lg-4 col-md-6 col-12 mb-2 mb-lg-0">
                         <div class="footer-info">
-                            <i class="fas fa-graduation-cap"></i>
+                            <img src="\trabajo-sena\assets\img\logo-sena-negro-png-2022.png" alt ="logo" width="30" height="30" style="margin-right: 10px;">
                             <span>SENA - Sistema de Deserción © 2025</span>
                         </div>
                     </div>
