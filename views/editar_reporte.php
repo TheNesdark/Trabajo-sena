@@ -6,12 +6,9 @@
     <title>Editar Reporte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <?php
-    include 'header.php';
-    include '../config.php';
-
-    $idreporte = $_GET['idreporte'];
+<?php include 'header.php';
+include '../config.php';
+$idreporte = $_GET['idreporte'];
     try {
         $stmt = $pdo->query("SELECT * FROM reportes WHERE idreporte = $idreporte");
         $reporte = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +16,8 @@
         header("Location: ../../views/Reportes.php?mensaje=error");
         exit();
     }
-    ?>
+?>
+<body class="bg-light">
 <div class="container-fluid py-5 min-vh-100" style="background-color: #f8f9fa;">
     <div class="row justify-content-center">
         <div class="col-12">
