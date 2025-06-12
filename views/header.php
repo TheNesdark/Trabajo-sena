@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Trabajo-sena/views/cerrar_sesion.php">
+                            <a class="nav-link" href="/Trabajo-sena/controller/Login/Cerrar.php">
                                 <i class="fas fa-sign-out-alt me-1"></i> Cerrar Sesión
                             </a>
                         </li>
