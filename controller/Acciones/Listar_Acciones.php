@@ -5,15 +5,16 @@ function listarAcciones() {
     global $pdo;
     $busqueda = '';
     try {
-        if (!$pdo) {
-            throw new Exception('Database connection not established.');
-        }
         if (isset($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
             $stmt = $pdo->prepare("SELECT * FROM acciones WHERE idaccion LIKE :busqueda OR descripcion LIKE :busqueda OR usuario LIKE :busqueda");
             $stmt->execute([':busqueda' => "%$busqueda%"]);
         } else {
-            $stmt = $pdo->query("SELECT * FROM acciones");
+            $stmt = $pdo->query("SELECT aprendiz.nombres, aprendiz.apellidos, 
+       reportes.idreporte, acciones.descripcion,acciones.idaccion
+FROM aprendiz
+INNER JOIN reportes ON aprendiz.idaprendiz = reportes.idaprendiz
+INNER JOIN acciones ON reportes.idreporte = acciones.idreporte");
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
@@ -25,9 +26,6 @@ function listarAcciones() {
 function listarAccionesPorReporte($idreporte) {
     global $pdo;
     try {
-        if (!$pdo) {
-            throw new Exception('Database connection not established.');
-        }
         $stmt = $pdo->prepare("SELECT * FROM acciones WHERE idreporte = :idreporte");
         $stmt->execute([':idreporte' => $idreporte]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,14 +16,14 @@
     <div id="alerta"></div>
     <div class="container mt-4">
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
-            <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones</h1>
+            <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
             <?php include 'busquedas.php'; ?>
+
             <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
-                <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAccionModal">
-                    <i class="fa-solid fa-plus"></i> Añadir Acción
-                </button>
+                <?php
+                ?>
             </div>
         </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
@@ -32,7 +31,8 @@
                 <table class="table table-bordered mb-0">
                     <thead>
                         <tr>
-                            <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> ID</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> ID Reporte</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-user"></i> Aprendiz</th>
                             <th class='text-center w-20'><i class="fa-solid fa-align-left"></i> Descripción</th>
                             <th class='text-center w-20'><i class="fa-solid fa-cog"></i> Acciones</th>
                         </tr>
@@ -48,7 +48,8 @@
 
                             foreach ($acciones as $accion): ?>
                         <tr>
-                            <td class='text-center'><?php echo $accion['idaccion']; ?></td>
+                            <td class='text-center'><?php echo $accion['idreporte']; ?></td>
+                            <td class='text-center'><?php echo $accion['nombres'] . ' ' . $accion['apellidos']; ?></td>
                             <td class='text-center'><?php echo $accion['descripcion']; ?></td>
                             <td class='text-center'>
                                 <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editAccionModal" onclick="CargarDatos(<?php echo $accion['idaccion']; ?>, '<?php echo htmlspecialchars($accion['descripcion']); ?>')">
