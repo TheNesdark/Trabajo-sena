@@ -7,7 +7,7 @@ function listarProgramas() {
     $busqueda = '';
     if (isset($_GET['busqueda'])) {
         $busqueda = $_GET['busqueda'];
-        $stmt = $pdo->prepare("SELECT * FROM programa WHERE nombre_programa LIKE :busqueda OR codigo_programa LIKE :busqueda");
+        $stmt = $pdo->prepare("SELECT * FROM programa WHERE idprograma LIKE :busqueda OR nombreprograma LIKE :busqueda");
         $stmt->execute([':busqueda' => "%$busqueda%"]);
     } else {
         $stmt = $pdo->query("SELECT * FROM programa");

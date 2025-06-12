@@ -14,6 +14,7 @@ include '../controller/Acciones/Listar_Acciones.php';
     <?php 
         include 'header.php'; 
         include '../controller/Acciones/Modals.php';
+        include '../controller/Acciones/Listar_Acciones.php';
     ?>
     <div id="alerta"></div>
     <div class="container mt-4">

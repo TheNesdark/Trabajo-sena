@@ -6,7 +6,7 @@ function listarMotivos() {
     $busqueda = '';
     if (isset($_GET['busqueda'])) {
         $busqueda = $_GET['busqueda'];
-        $stmt = $pdo->prepare("SELECT * FROM motivo WHERE nombre_motivo LIKE :busqueda OR codigo_motivo LIKE :busqueda");
+        $stmt = $pdo->prepare("SELECT * FROM motivo WHERE idmotivo LIKE :busqueda OR descripcion LIKE :busqueda");
         $stmt->execute([':busqueda' => "%$busqueda%"]);
     } else {
         $stmt = $pdo->query("SELECT * FROM motivo");
