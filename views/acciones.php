@@ -1,6 +1,4 @@
-<?php
-include '../controller/Acciones/Listar_Acciones.php';
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
