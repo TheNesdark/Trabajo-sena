@@ -8,6 +8,17 @@
             </div>
             <form method="POST" action="../controller/Acciones/Añadir_Acciones.php">
                 <div class="modal-body">
+                    <?php
+                    if (isset($_GET['idreporte'])) {
+                        $idreporte = $_GET['idreporte'];
+                        echo "<input type='hidden' name='idreporte' value='$idreporte'>";
+                    } else {
+                        echo "<input type='hidden' name='idreporte' value=''>";
+                    }
+                    ?>
+                    <label for="idreporte" class="form-label">ID Reporte</label>
+                    <input type="text" class="form-control" id="idreporte" name="idreporte" value="<?php echo isset($idreporte) ? $idreporte : ''; ?>" readonly>
+                    <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripción</label>
                         <input type="text" class="form-control" id="descripcion" name="descripcion" required>
@@ -29,10 +40,17 @@
                 <h5 class="modal-title" id="editAccionModalLabel">Editar Acción</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="../controller/Acciones/Editar_Acciones.php" method="POST">
+            <form method="POST" action="../controller/Acciones/Editar_Acciones.php">
                 <div class="modal-body">
-                    <label for="editIdAccion" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="editIdAccion" name="idaccion" readonly>
+                    <?php
+                    if (isset($_GET['idreporte'])) {
+                        $idreporte = $_GET['idreporte'];
+                        echo "<input type='hidden' name='idreporte' value='$idreporte'>";
+                    } else {
+                        echo "<input type='hidden' name='idreporte' value=''>";
+                    }
+                    ?>
+                    <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
                     <div class="mb-3">
                         <label for="editDescripcion" class="form-label">Descripción</label>
                         <input type="text" class="form-control" id="editDescripcion" name="descripcion" required>
