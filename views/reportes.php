@@ -19,6 +19,7 @@ include 'header.php';
     <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
         <h1><i class="fa-solid fa-file-alt" style="color: #50c8c6"></i> Lista de Reportes</h1>
     </div>
+    <?php include 'busquedas.php'; ?>
     <div class="row mb-2" style="max-width: 98%; margin:auto;">
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
             <a href="/Trabajo-sena/views/crear_reporte.php" class="btn btn-success w-100">
