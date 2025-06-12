@@ -9,7 +9,7 @@ function listarAcciones() {
         $stmt = $pdo->prepare("SELECT * FROM accion WHERE idaccion LIKE :busqueda OR descripcion LIKE :busqueda OR usuario LIKE :busqueda");
         $stmt->execute([':busqueda' => "%$busqueda%"]);
     } else {
-        $stmt = $pdo->query("SELECT * FROM accion");
+        $stmt = $pdo->query("SELECT * FROM acciones");
     }
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
