@@ -19,8 +19,9 @@
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
             <h1><i class="fa-solid fa-list-ol" style="color: #50c8c6"></i> Lista de Fichas</h1>
         </div>
-        <?php include 'busquedas.php'; ?>
+        
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
+            <?php include 'busquedas.php'; ?>
             <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
                 <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addFichaModal">
                     <i class="fa-solid fa-plus"></i> Añadir Ficha
