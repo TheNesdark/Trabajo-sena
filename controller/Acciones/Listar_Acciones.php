@@ -21,4 +21,19 @@ function listarAcciones() {
         return [];
     }
 }
+
+function listarAccionesPorReporte($idreporte) {
+    global $pdo;
+    try {
+        if (!$pdo) {
+            throw new Exception('Database connection not established.');
+        }
+        $stmt = $pdo->prepare("SELECT * FROM acciones WHERE idreporte = :idreporte");
+        $stmt->execute([':idreporte' => $idreporte]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        error_log('Error in listarAccionesPorUsuario: ' . $e->getMessage());
+        return [];
+    }
+}
 ?>

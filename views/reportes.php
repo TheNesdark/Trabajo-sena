@@ -66,6 +66,9 @@ include 'header.php';
                         <a href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">
                             <i class="fas fa-trash"></i>
                         </a>
+                        <a href="/Trabajo-sena/views/acciones.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-info btn-sm">
+                            <i class="fas fa-eye"></i>
+                        </a>
                     </td>
                 </tr>
                     <?php endforeach; ?>
