@@ -3,12 +3,14 @@ require '../config.php';
 
 function listarMotivos() {
     global $pdo;
-    try {
+    $busqueda = '';
+    if (isset($_GET['busqueda'])) {
+        $busqueda = $_GET['busqueda'];
+        $stmt = $pdo->prepare("SELECT * FROM motivo WHERE nombre_motivo LIKE :busqueda OR codigo_motivo LIKE :busqueda");
+        $stmt->execute([':busqueda' => "%$busqueda%"]);
+    } else {
         $stmt = $pdo->query("SELECT * FROM motivo");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        header("Location: ../../views/motivo.php?mensaje=error");
-        exit();
     }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>

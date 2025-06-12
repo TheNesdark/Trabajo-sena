@@ -4,12 +4,15 @@ require '../config.php';
 
 function listarFichas() {
     global $pdo;
-    try {
-        $stmt = $pdo->query("SELECT programa.nombreprograma, ficha.nficha FROM ficha INNER JOIN programa ON ficha.idprograma = programa.idprograma");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        header("Location: ../../views/ficha.php?mensaje=error");
-        exit();
+    $busqueda = '';
+    if (isset($_GET['busqueda'])) {
+        $busqueda = $_GET['busqueda'];
+        $stmt = $pdo->prepare("SELECT * FROM ficha WHERE nombre_ficha LIKE :busqueda OR codigo_ficha LIKE :busqueda");
+        $stmt->execute([':busqueda' => "%$busqueda%"]);
+    } else {
+        $stmt = $pdo->query("SELECT * FROM ficha");
     }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
+

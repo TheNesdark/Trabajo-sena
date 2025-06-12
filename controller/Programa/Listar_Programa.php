@@ -4,11 +4,14 @@ require '../config.php';
 
 function listarProgramas() {
     global $pdo;
-    try {
+    $busqueda = '';
+    if (isset($_GET['busqueda'])) {
+        $busqueda = $_GET['busqueda'];
+        $stmt = $pdo->prepare("SELECT * FROM programa WHERE nombre_programa LIKE :busqueda OR codigo_programa LIKE :busqueda");
+        $stmt->execute([':busqueda' => "%$busqueda%"]);
+    } else {
         $stmt = $pdo->query("SELECT * FROM programa");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("Error al consultar la tabla programa: " . $e->getMessage());
     }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
