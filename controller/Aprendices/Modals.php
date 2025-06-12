@@ -9,10 +9,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Documento</label>
-                        <input type="text" class="form-control" name="idaprendiz" required>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Tipo de documento</label>
                         <select class="form-select" name="tipodoc" required>
                             <option value="" disabled selected>Seleccione un tipo de documento</option>
@@ -24,6 +20,11 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Documento</label>
+                        <input type="text" class="form-control" name="idaprendiz" required>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Nombres</label>
                         <input type="text" class="form-control" name="nombres">
                     </div>
@@ -33,7 +34,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Celular</label>
-                        <input type="text" class="form-control" name="celular">
+                        <input type="number" class="form-control" name="celular">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Correo</label>
@@ -65,6 +66,10 @@
                 <div class="modal-body">
                     <input type="hidden" id="editIdAprendiz" name="idaprendiz">
                     <div class="mb-3">
+                        <label class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="editNombres" name="nombres">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Tipo de documento</label>
                         <select class="form-select" id="editTipodoc" name="tipodoc" required>
                             <option value="" disabled>Seleccione un tipo de documento</option>
@@ -74,10 +79,6 @@
                             <option value="PA">Pasaporte</option>
                             <option value="RC">Registro Civil</option>
                         </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="editNombres" name="nombres">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Apellidos</label>
@@ -104,15 +105,3 @@
         </div>
     </div>
 </div>
-
-<script>
-function CargarDatos(id, tipodoc, nombres, apellidos, celular, email, direccion) {
-        document.getElementById('editIdAprendiz').value = id;
-        document.getElementById('editTipodoc').value = tipodoc;
-        document.getElementById('editNombres').value = nombres;
-        document.getElementById('editApellidos').value = apellidos;
-        document.getElementById('editCelular').value = celular;
-        document.getElementById('editEmail').value = email;
-        document.getElementById('editDireccion').value = direccion;
-}
-</script>
