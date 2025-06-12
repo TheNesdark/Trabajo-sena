@@ -5,48 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fichas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="/trabajo-sena/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <?php 
         include 'header.php';
         include '../controller/Fichas/Listar_Fichas.php';
         include '../controller/Fichas/Modals.php';
-
     ?>
     <div id="alerta"></div>
-    <div class="container mt-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>Lista de Fichas</h1>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFichaModal">Añadir Ficha</button>
+    <div class="container mt-4">
+        <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
+            <h1><i class="fa-solid fa-list-ol" style="color: #50c8c6"></i> Lista de Fichas</h1>
         </div>
-        <table class="table table-striped border-black" style="border: 2px solid black;">
-            <thead>
-                <tr>
-
-                    <th style="width: 30%;">Número Ficha</th>
-                    <th style="width: 30%;">Programa</th>
-                    <th style="width: 20%;">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                $fichas = listarFichas();
-                foreach ($fichas as $ficha): ?>
-                    <tr>
-                        <td><?php echo $ficha['nficha']; ?></td>
-                        <td><?php echo $ficha['nombreprograma']; ?></td>
-                        <td>
-                            <a href="../controller/Fichas/Eliminar_Fichas.php?id=<?php echo $ficha['nficha']; ?>" class="btn btn-primary">Eliminar</a>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editFichaModal" onclick="CargarDatos(<?php echo $ficha['nficha']; ?>, '<?php echo htmlspecialchars($ficha['nficha']); ?>', '<?php echo htmlspecialchars($ficha['nombreprograma']); ?>')">Editar</button>
-                        </td>
-                    </tr>  
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="row mb-2" style="max-width: 98%; margin:auto;">
+            <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
+                <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addFichaModal">
+                    <i class="fa-solid fa-plus"></i> Añadir Ficha
+                </button>
+            </div>
+        </div>
+        <div class="table-container" style="max-width: 98%; margin:auto;">
+            <div class="table-responsive">
+                <table class="table table-bordered mb-0">
+                    <thead>
+                        <tr>
+                            <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> Número Ficha</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-book-open"></i> Programa</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-cog"></i> Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $fichas = listarFichas();
+                        foreach ($fichas as $ficha): ?>
+                        <tr>
+                            <td class='text-center'><?php echo $ficha['nficha']; ?></td>
+                            <td class='text-center'><?php echo $ficha['nombreprograma']; ?></td>
+                            <td class='text-center'>
+                                <a href="../controller/Fichas/Eliminar_Fichas.php?id=<?php echo $ficha['nficha']; ?>" class="btn btn-danger btn-sm me-1" onclick="return confirm('¿Seguro que deseas eliminar esta ficha?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editFichaModal" onclick="CargarDatos(<?php echo $ficha['nficha']; ?>, '<?php echo htmlspecialchars($ficha['nficha']); ?>', '<?php echo htmlspecialchars($ficha['nombreprograma']); ?>')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>  
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 <?php include 'Alertas.php'; ?>
-
 function CargarDatos(id, numero, idprograma) {
     document.getElementById('numero').value = id;
     document.getElementById('editIdPrograma').value = idprograma;
