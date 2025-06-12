@@ -11,18 +11,21 @@
 <body>
 <?php
 include 'header.php';
-include '../controller/Aprendices/Listar_Aprendices.php';
 include '../controller/Aprendices/Modals.php';
 ?>
 <div id="alerta"></div>
 <div class="container mt-4">
+    
     <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
         <h1> <i class="fa-solid fa-graduation-cap" style="color: #50c8c6"></i> Lista de Aprendices</h1>
     </div>
-    <div class="d-flex justify-content-end mb-2" style="margin-right: 20px;">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
-            <i class="fa-solid fa-plus"></i> Añadir Aprendiz
-        </button>
+    <div class="row mb-2" style="max-width: 98%; margin:auto;">
+        <?php include '../controller/Aprendices/Listar_Aprendices.php'; ?>
+        <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
+            <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
+                <i class="fa-solid fa-plus"></i> Añadir Aprendiz
+            </button>
+        </div>
     </div>
     <div class="table-container" style="max-width: 98%; margin:auto;">
         <div class="table-responsive">
