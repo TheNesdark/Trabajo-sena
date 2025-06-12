@@ -24,7 +24,7 @@ include '../controller/Aprendices/Listar_Aprendices.php';
         <?php include 'busquedas.php'; ?>
         <?php  ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
-            <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
+            <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
                 <i class="fa-solid fa-plus"></i> Añadir Aprendiz
             </button>
         </div>

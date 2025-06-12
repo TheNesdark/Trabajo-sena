@@ -23,7 +23,7 @@ include 'header.php';
     <div class="row mb-2" style="max-width: 98%; margin:auto;">
         <?php include 'busquedas.php'; ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
-            <a href="/Trabajo-sena/views/crear_reporte.php" class="btn btn-success w-100">
+            <a href="/Trabajo-sena/views/crear_reporte.php" class="btn w-100" style="background-color: #50c8c6; color: #fff;">
                 <i class="fa-solid fa-plus"></i> Añadir Reporte
             </a>
         </div>
