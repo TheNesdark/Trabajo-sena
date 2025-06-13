@@ -1,3 +1,4 @@
+<?php include_once __DIR__ . '/../controller/Login/verificar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
