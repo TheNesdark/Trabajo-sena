@@ -2,7 +2,8 @@
 include 'header.php'; 
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
-$acciones = listarAcciones();
+$idreporte = $_GET['idreporte'];
+$acciones = listarAccionesPorReporte($idreporte);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,6 +20,11 @@ $acciones = listarAcciones();
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
         <?php include 'busquedas.php'; ?>
+        <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
+            <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAccionModal">
+                <i class="fa-solid fa-plus"></i> Añadir Accion a <?php echo $acciones[0]['nombres']; ?>
+            </button>
+        </div>
     </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
@@ -33,7 +39,6 @@ $acciones = listarAcciones();
                     </thead>
                     <tbody>
                         <?php 
-
                             foreach ($acciones as $accion): ?>
                         <tr>
                             <td class='text-center'><?php echo $accion['idreporte']; ?></td>

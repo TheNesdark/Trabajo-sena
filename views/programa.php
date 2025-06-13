@@ -1,5 +1,6 @@
 <?php
-
+include 'header.php'; 
+include '../controller/Programa/Modals.php';
 include '../controller/Programa/Listar_Programa.php';
 ?>
 <!DOCTYPE html>
@@ -7,15 +8,8 @@ include '../controller/Programa/Listar_Programa.php';
 <head>
     <meta charset="UTF-8">
     <title>Programas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="/trabajo-sena/assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <?php 
-        include 'header.php'; 
-        include '../controller/Programa/Modals.php';
-    ?>
     <div id="alerta"></div>
     <div class="container mt-4">
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
@@ -62,7 +56,6 @@ include '../controller/Programa/Listar_Programa.php';
             </div>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 <?php include 'Alertas.php'; ?>
 function CargarDatos(id, nombre) {
@@ -70,6 +63,6 @@ function CargarDatos(id, nombre) {
     document.getElementById('editNombre').value = nombre;
 }
 </script>
-<?php include 'footer.php'; ?>
 </body>
 </html>
+<?php include 'footer.php'; ?>

@@ -14,8 +14,6 @@
                 <a class="navbar-brand fs-5 fw-bold text-primary" href="\trabajo-sena\index.php"> <img src="\trabajo-sena\assets\img\logo-sena-negro-png-2022.png" alt ="logo" width="80" height="80" style="margin-right: 10px;">
                     Deserción SENA
                 </a>
-
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,7 +39,3 @@
             </div>
         </nav>
     </header>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
