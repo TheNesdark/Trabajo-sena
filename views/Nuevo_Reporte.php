@@ -1,11 +1,15 @@
+<?php 
+include '../controller/Aprendices/Listar_Aprendices.php';
+include '../controller/Fichas/Listar_Fichas.php';
+include '../controller/Motivos/Listar_Motivos.php';
+include 'header.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir Reporte</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .form-label i {
             margin-right: 6px;
@@ -48,7 +52,6 @@
     
 </head>
 <body class="bg-light">
-    <?php include 'header.php'; ?>
     <div class="container py-5 min-vh-100">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-9">
@@ -65,7 +68,6 @@
                                 <select name="idaprendiz" id="idaprendiz" class="form-select" required>
                                     <option value="" disabled selected>Seleccione un aprendiz</option>
                                     <?php
-                                    include '../controller/Aprendices/Listar_Aprendices.php';
                                     $aprendices = listarAprendices();
                                     if (!$aprendices) {
                                         echo "<option value=''>No hay aprendices disponibles</option>";
@@ -84,7 +86,6 @@
                                 <select name="nficha" id="nficha" class="form-select" required>
                                     <option value="" disabled selected>Seleccione una ficha</option>
                                     <?php
-                                    include '../controller/Fichas/Listar_Fichas.php';
                                     $fichas = listarFichas();
                                     if (!$fichas) {
                                         echo "<option value=''>No hay fichas disponibles</option>";
@@ -103,7 +104,6 @@
                                 <select name="idmotivo" class="form-select" required>
                                     <option value="" disabled selected>Seleccione un motivo</option>
                                     <?php
-                                    include '../controller/Motivos/Listar_Motivos.php';
                                     $motivos = listarMotivos();
                                     if (!$motivos) {
                                         echo "<option value=''>No hay motivos disponibles</option>";
@@ -152,7 +152,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include 'footer.php'; ?>
 </body>
 </html>
+<?php include 'footer.php'; ?>

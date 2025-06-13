@@ -1,5 +1,4 @@
 
-<?php include 'controller/Login/verificar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

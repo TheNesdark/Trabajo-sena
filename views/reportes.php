@@ -1,19 +1,15 @@
+<?php
+include 'header.php';
+include '../controller/Reportes/Listar_Reportes.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/trabajo-sena/assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-<?php
-include '../config.php';
-include '../controller/Reportes/Listar_Reportes.php';
-include 'header.php';
-?>
 <div id="alerta"></div>
 <div class="container-fluid mt-4 ">
     <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
@@ -66,7 +62,7 @@ include 'header.php';
                         <a href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">
                             <i class="fas fa-trash"></i>
                         </a>
-                        <a href="/Trabajo-sena/views/acciones.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-info btn-sm">
+                        <a href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-info btn-sm">
                             <i class="fas fa-eye"></i>
                         </a>
                     </td>
@@ -77,11 +73,10 @@ include 'header.php';
         </div>
     </div>
 </div>
-<?php include 'footer.php'; ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     <?php include 'Alertas.php'; ?>
 </script>
 </html>
+<?php include 'footer.php'; ?>
 

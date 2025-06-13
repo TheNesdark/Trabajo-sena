@@ -8,16 +8,9 @@
             </div>
             <form method="POST" action="../controller/Acciones/Añadir_Acciones.php">
                 <div class="modal-body">
-                    <?php
-                    if (isset($_GET['idreporte'])) {
-                        $idreporte = $_GET['idreporte'];
-                        echo "<input type='hidden' name='idreporte' value='$idreporte'>";
-                    } else {
-                        echo "<input type='hidden' name='idreporte' value=''>";
-                    }
-                    ?>
+
                     <label for="idreporte" class="form-label">ID Reporte</label>
-                    <input type="text" class="form-control" id="idreporte" name="idreporte" value="<?php echo isset($idreporte) ? $idreporte : ''; ?>" readonly>
+                    <input type="text" class="form-control" id="idreporte" name="idreporte" value="<?php $idreporte ?>" readonly>
                     <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripción</label>
