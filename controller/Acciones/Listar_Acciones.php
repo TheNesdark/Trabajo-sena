@@ -7,7 +7,12 @@ function listarAcciones() {
     try {
         if (isset($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
-            $stmt = $pdo->prepare("SELECT * FROM acciones WHERE idaccion LIKE :busqueda OR descripcion LIKE :busqueda OR usuario LIKE :busqueda");
+            $stmt = $pdo->prepare("SELECT aprendiz.nombres, aprendiz.apellidos, 
+       reportes.idreporte, acciones.descripcion, acciones.idaccion
+FROM aprendiz
+INNER JOIN reportes ON aprendiz.idaprendiz = reportes.idaprendiz
+INNER JOIN acciones ON reportes.idreporte = acciones.idreporte
+WHERE acciones.idreporte LIKE :busqueda OR acciones.descripcion LIKE :busqueda OR acciones.usuario LIKE :busqueda");
             $stmt->execute([':busqueda' => "%$busqueda%"]);
         } else {
             $stmt = $pdo->query("SELECT aprendiz.nombres, aprendiz.apellidos, 
@@ -29,7 +34,13 @@ function listarAccionesPorReporte($idreporte) {
     try {
         if (isset($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
-            $stmt = $pdo->prepare("SELECT * FROM acciones WHERE idreporte = :idreporte AND (idaccion LIKE :busqueda OR descripcion LIKE :busqueda OR usuario LIKE :busqueda)");
+            $stmt = $pdo->prepare("SELECT aprendiz.nombres, aprendiz.apellidos, 
+            reportes.idreporte, acciones.descripcion, acciones.idaccion
+     FROM aprendiz
+     INNER JOIN reportes ON aprendiz.idaprendiz = reportes.idaprendiz
+     INNER JOIN acciones ON reportes.idreporte = acciones.idreporte
+     WHERE acciones.idreporte = :idreporte
+     AND (acciones.idaccion LIKE :busqueda OR acciones.descripcion LIKE :busqueda OR acciones.usuario LIKE :busqueda)");
             $stmt->execute([':idreporte' => $idreporte, ':busqueda' => "%$busqueda%"]);
         } else {
             $stmt = $pdo->prepare("SELECT aprendiz.nombres, aprendiz.apellidos, 

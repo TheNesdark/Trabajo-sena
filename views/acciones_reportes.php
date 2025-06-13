@@ -42,8 +42,13 @@ $acciones = listarAccionesPorReporte($idreporte);
             <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-        <?php include 'busquedas.php';
-         ?>
+        <div class="col-md-9 col-12 mb-2 mb-md-0">
+    <form class="d-flex w-100" method="GET">
+        <input type="hidden" name="idreporte" value="<?php echo htmlspecialchars($_GET['idreporte'] ?? ''); ?>">
+        <input class="form-control me-2" type="search" name="busqueda" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+</div>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
             <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAccionModal">
                 <i class="fa-solid fa-plus"></i> Añadir Accion a <?php echo $nombre_usuario; ?>
