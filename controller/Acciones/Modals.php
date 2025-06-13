@@ -12,7 +12,7 @@
                     <label for="idreporte" class="form-label">ID Reporte</label>
                     <?php
                         $idreporte = $_GET['idreporte'];
-                        echo "<input type='hidden' name='idreporte' value='$idreporte'>";
+                        echo "<input type='text'class='form-control' id='idreporte' name='idreporte' value='$idreporte' readonly>";
                     ?>
                     <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
                     <div class="mb-3">
