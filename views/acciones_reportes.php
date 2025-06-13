@@ -22,7 +22,7 @@ $acciones = listarAccionesPorReporte($idreporte);
         <?php include 'busquedas.php'; ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
             <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAccionModal">
-                <i class="fa-solid fa-plus"></i> Añadir Accion<?php if (!empty($acciones) && isset($acciones[0]['nombres'])) { echo ' a ' . htmlspecialchars($acciones[0]['nombres']); } ?>
+                <i class="fa-solid fa-plus"></i> Añadir Accion a <?php echo $acciones[0]['nombres']; ?>
             </button>
         </div>
     </div>
