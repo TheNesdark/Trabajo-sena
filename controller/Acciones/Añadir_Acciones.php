@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $stmt = $pdo->prepare("INSERT INTO acciones (idreporte, fecha, descripcion, usuario) VALUES (?, now(), ?, ?)");
         $stmt->execute([$idreporte, $descripcion, $usuario]);
-        header("Location: ../../views/acciones.php?mensaje=agregado&idreporte=$idreporte");
+        header("Location: ../../views/acciones_reportes.php?mensaje=agregado&idreporte=$idreporte");
         exit();
     } catch (PDOException $e) {
         die("Error al agregar la acción: " . $e->getMessage());
