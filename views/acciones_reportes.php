@@ -3,6 +3,29 @@ include 'header.php';
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
 $idreporte = $_GET['idreporte'];
+        $stmt = $pdo->prepare("
+            SELECT 
+                reportes.idreporte,
+                aprendiz.nombres AS nombre_aprendiz,
+                aprendiz.apellidos AS apellido_aprendiz,
+                ficha.nficha,
+                programa.nombreprograma,
+                motivo.descripcion AS motivo,
+                reportes.fallas,
+                reportes.observaciones,
+                reportes.estado,
+                reportes.fecha
+            FROM reportes
+            INNER JOIN aprendiz ON reportes.idaprendiz = aprendiz.idaprendiz
+            INNER JOIN ficha ON reportes.nficha = ficha.nficha
+            INNER JOIN programa ON ficha.idprograma = programa.idprograma
+            INNER JOIN motivo ON reportes.idmotivo = motivo.idmotivo
+            WHERE reportes.idreporte = ?
+        ");
+        $stmt->execute([$idreporte]);
+        $reporte = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nombre_usuario = $reporte['nombre_aprendiz'] . ' ' . $reporte['apellido_aprendiz'];
+
 $acciones = listarAccionesPorReporte($idreporte);
 ?>
 <!DOCTYPE html>
@@ -19,10 +42,11 @@ $acciones = listarAccionesPorReporte($idreporte);
             <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-        <?php include 'busquedas.php'; ?>
+        <?php include 'busquedas.php';
+         ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
             <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAccionModal">
-                <i class="fa-solid fa-plus"></i> Añadir Accion a <?php echo $acciones[0]['nombres']; ?>
+                <i class="fa-solid fa-plus"></i> Añadir Accion a <?php echo $nombre_usuario; ?>
             </button>
         </div>
     </div>
