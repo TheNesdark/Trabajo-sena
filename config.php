@@ -1,5 +1,5 @@
 <?php
-// config.php
+
 $host = 'localhost';
 $db = 'desercion';
 $user = 'root';
