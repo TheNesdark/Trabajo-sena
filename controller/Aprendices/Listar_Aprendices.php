@@ -1,7 +1,7 @@
 <?php
 require '../config.php';
 
-function listarAprendices($pagina = 1, $limite = 10) {
+function listarAprendices($pagina, $limite) {
     global $pdo;
 
     $busqueda = isset($_GET['busqueda']) ? $_GET['busqueda'] : '';

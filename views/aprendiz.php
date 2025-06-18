@@ -4,8 +4,6 @@ include '../controller/Aprendices/Modals.php';
 include '../controller/Aprendices/Listar_Aprendices.php';
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $limite = 10;
-
-
 $aprendices = listarAprendices($pagina, $limite);
 ?>
 <!DOCTYPE html>
@@ -48,7 +46,6 @@ $aprendices = listarAprendices($pagina, $limite);
         </thead>
         <tbody>
             <?php 
-            $aprendices = listarAprendices();
             foreach ($aprendices as $aprendiz): ?>
                 <tr>
                     <td class='text-center'><?php echo $aprendiz['idaprendiz']; ?></td>
@@ -71,7 +68,7 @@ $aprendices = listarAprendices($pagina, $limite);
             <?php endforeach; ?>
         </tbody>
     </table>
-    <nav aria-label="Page navigation">
+<nav aria-label="Page navigation">
   <ul class="pagination justify-content-center mt-3">
     <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
       <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">Anterior</a>
