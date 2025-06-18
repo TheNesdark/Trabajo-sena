@@ -17,16 +17,16 @@ $pdf->Ln(5);
 
 
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(40, 20, 'Usuario', 1);
-$pdf->Cell(50, 20, 'Nombre', 1);
-$pdf->Cell(50, 20, 'Email', 1);
+$pdf->Cell(40, 10, 'Usuario', 1);
+$pdf->Cell(50, 10, 'Nombre', 1);
+$pdf->Cell(50, 10, 'Email', 1);
 $pdf->Ln();
 
 
 foreach ($datos as $usuario) {
-    $pdf->Cell(40, 20, utf8_decode($usuario['usuario']), 1);
-    $pdf->Cell(50, 20, utf8_decode($usuario['nombre']), 1);
-    $pdf->Cell(50, 20, utf8_decode($usuario['email']), 1);
+    $pdf->Cell(40, 10, utf8_decode($usuario['usuario']), 1);
+    $pdf->Cell(50, 10, utf8_decode($usuario['nombre']), 1);
+    $pdf->Cell(50, 10, utf8_decode($usuario['email']), 1);
     $pdf->Ln();
 }
 
