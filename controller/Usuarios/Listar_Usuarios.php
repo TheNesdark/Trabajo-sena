@@ -1,16 +1,35 @@
 <?php
 require '../config.php';
 
-function listarUsuarios() {
+function listarUsuarios($pagina, $limite) {
     global $pdo;
-    $busqueda = '';
-    if (isset($_GET['busqueda'])) {
-        $busqueda = $_GET['busqueda'];
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE nombre LIKE :busqueda" );
-        $stmt->execute([':busqueda' => "%$busqueda%"]);
-    } else {
-        $stmt = $pdo->query("SELECT * FROM usuarios");
+
+    $busqueda = isset($_GET['busqueda']) ? $_GET['busqueda'] : '';
+    $offset = ($pagina - 1) * $limite;
+
+    try {
+        if ($busqueda !== '') {
+            $sql = "SELECT * FROM usuarios 
+                    WHERE nombre LIKE :busqueda 
+                    LIMIT :offset, :limite";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
+        } else {
+            $sql = "SELECT * FROM usuarios 
+                    LIMIT :offset, :limite";
+            $stmt = $pdo->prepare($sql);
+        }
+
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+        error_log('Error en listarUsuarios: ' . $e->getMessage());
+        return [];
     }
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
+

@@ -1,13 +1,15 @@
 <?php
 require '../config.php';
 
-function listarReportes() {
+function listarReportes($pagina, $limite) {
     global $pdo;
-    $busqueda = '';
+
+    $busqueda = isset($_GET['busqueda']) ? $_GET['busqueda'] : '';
+    $offset = ($pagina - 1) * $limite;
+
     try {
-        if (isset($_GET['busqueda']) && $_GET['busqueda'] !== '') {
-            $busqueda = $_GET['busqueda'];
-            $stmt = $pdo->prepare("
+        if ($busqueda !== '') {
+            $sql = "
                 SELECT 
                     reportes.idreporte,
                     aprendiz.nombres AS nombre_aprendiz,
@@ -26,10 +28,11 @@ function listarReportes() {
                 INNER JOIN motivo ON reportes.idmotivo = motivo.idmotivo
                 WHERE aprendiz.nombres LIKE :busqueda
                    OR aprendiz.idaprendiz LIKE :busqueda
-            ");
-            $stmt->execute([':busqueda' => "%$busqueda%"]);
+                LIMIT :offset, :limite";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
         } else {
-            $stmt = $pdo->query("
+            $sql = "
                 SELECT 
                     reportes.idreporte,
                     aprendiz.nombres AS nombre_aprendiz,
@@ -46,13 +49,22 @@ function listarReportes() {
                 INNER JOIN ficha ON reportes.nficha = ficha.nficha
                 INNER JOIN programa ON ficha.idprograma = programa.idprograma
                 INNER JOIN motivo ON reportes.idmotivo = motivo.idmotivo
-            ");
+                LIMIT :offset, :limite";
+            $stmt = $pdo->prepare($sql);
         }
+
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
+        $stmt->execute();
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     } catch (PDOException $e) {
+        error_log('Error en listarReportes: ' . $e->getMessage());
         header("Location: ../../views/Reportes.php?mensaje=error");
         exit();
     }
 }
 ?>
+
 
