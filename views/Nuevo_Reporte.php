@@ -68,7 +68,7 @@ include 'header.php';
                                 <select name="idaprendiz" id="idaprendiz" class="form-select" required>
                                     <option value="" disabled selected>Seleccione un aprendiz</option>
                                     <?php
-                                    $aprendices = listarAprendices();
+                                    $aprendices = listarAprendices(1, INF);
                                     if (!$aprendices) {
                                         echo "<option value=''>No hay aprendices disponibles</option>";
                                     } else {
@@ -86,7 +86,7 @@ include 'header.php';
                                 <select name="nficha" id="nficha" class="form-select" required>
                                     <option value="" disabled selected>Seleccione una ficha</option>
                                     <?php
-                                    $fichas = listarFichas();
+                                    $fichas = listarFichas(1, INF);
                                     if (!$fichas) {
                                         echo "<option value=''>No hay fichas disponibles</option>";
                                     } else {
@@ -104,7 +104,7 @@ include 'header.php';
                                 <select name="idmotivo" class="form-select" required>
                                     <option value="" disabled selected>Seleccione un motivo</option>
                                     <?php
-                                    $motivos = listarMotivos();
+                                    $motivos = listarMotivos(1, INF);
                                     if (!$motivos) {
                                         echo "<option value=''>No hay motivos disponibles</option>";
                                     } else {

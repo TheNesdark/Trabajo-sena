@@ -18,7 +18,7 @@
                             <option value="" disabled selected>Seleccione un Programa</option>
                             <?php
                             include '../controller/Programa/Listar_Programa.php';
-                            $programas = listarProgramas();
+                            $programas = listarProgramas(1, INF);
                             foreach ($programas as $programa) {
                                 echo "<option value='{$programa['idprograma']}'>{$programa['nombreprograma']}</option>";
                             }
