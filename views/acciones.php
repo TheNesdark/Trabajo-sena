@@ -2,7 +2,9 @@
 include 'header.php'; 
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
-$acciones = listarAcciones();
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
+$acciones = listarAcciones($pagina, $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,6 +54,23 @@ $acciones = listarAcciones();
                     </tbody>
                 </table>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center mt-3">
+                  <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
+                  </li>
+                                            
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">
+                      <?= $pagina ?>
+                    </span>
+                  </li>
+                                            
+                  <li class="page-item <?= (count($acciones) < $limite) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
+                  </li>
+                </ul>
+            </nav>
         </div>
     </div>
 

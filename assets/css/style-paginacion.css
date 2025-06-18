@@ -14,19 +14,19 @@
 }
 
 .page-item .page-link:hover {
-    background: #007bff;
+    background: #50c8c6;
     color: white;
-    border-color: #007bff;
+    border-color: #50c8c6;
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+    box-shadow: 0 2px 8px rgba(80,200,198,0.3);
 }
 
 .page-item.active .page-link {
-    background: #007bff;
-    border-color: #007bff;
+    background: #50c8c6;
+    border-color: #50c8c6;
     color: white;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+    box-shadow: 0 2px 4px rgba(80,200,198,0.2);
 }
 
 .page-item.disabled .page-link {

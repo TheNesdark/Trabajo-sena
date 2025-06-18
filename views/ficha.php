@@ -2,6 +2,9 @@
 include 'header.php';
 include '../controller/Fichas/Listar_Fichas.php';
 include '../controller/Fichas/Modals.php';
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
+$fichas = listarFichas($pagina, $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,7 +40,6 @@ include '../controller/Fichas/Modals.php';
                     </thead>
                     <tbody>
                         <?php 
-                        $fichas = listarFichas();
                         foreach ($fichas as $ficha): ?>
                         <tr>
                             <td class='text-center'><?php echo $ficha['nficha']; ?></td>
@@ -55,6 +57,23 @@ include '../controller/Fichas/Modals.php';
                     </tbody>
                 </table>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center mt-3">
+                  <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
+                  </li>
+                                            
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">
+                      <?= $pagina ?>
+                    </span>
+                  </li>
+                                            
+                  <li class="page-item <?= (count($fichas) < $limite) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
+                  </li>
+                </ul>
+            </nav>
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
