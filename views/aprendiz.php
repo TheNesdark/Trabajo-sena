@@ -87,6 +87,19 @@ $aprendices = listarAprendices($pagina, $limite);
   </ul>
 </nav>
 </div>
+<div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+            <i class="fa-solid fa-share"></i>
+        </button>
+        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_Aprendices.php?tipo=pdf'">
+                <i class="fa-solid fa-file-pdf"></i>
+            </button>
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_Aprendices.php?tipo=excel'">
+                <i class="fa-solid fa-file-excel"></i>
+            </button>
+        </div>
+    </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 <?php include 'Alertas.php'; ?>

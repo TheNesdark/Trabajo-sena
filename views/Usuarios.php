@@ -96,11 +96,6 @@ $usuarios = listarUsuarios($pagina, $limite);
 
 <script>
 <?php include 'Alertas.php'; ?>
-function toggleOptions() {
-        const options = document.getElementById('export-options');
-        options.style.display = options.style.display === 'none' ? 'block' : 'none';
-    }
-
 function CargarDatos(usuario, nombre, email) {
     document.getElementById('editUsuario').value = usuario;
     document.getElementById('editNombre').value = nombre;

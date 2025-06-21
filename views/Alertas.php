@@ -25,3 +25,8 @@ let alerta = document.getElementById('alerta');
         }, 1000);
     }, 5000);
 <?php endif; ?>
+
+function toggleOptions() {
+        const options = document.getElementById('export-options');
+        options.style.display = options.style.display === 'none' ? 'block' : 'none';
+    }

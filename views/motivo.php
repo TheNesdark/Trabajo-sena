@@ -73,6 +73,19 @@ $motivos = listarMotivos($pagina, $limite);
 </nav>
         </div>
     </div>
+    <div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+            <i class="fa-solid fa-share"></i>
+        </button>
+        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_motivos.php?tipo=pdf'">
+                <i class="fa-solid fa-file-pdf"></i>
+            </button>
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_motivos.php?tipo=excel'">
+                <i class="fa-solid fa-file-excel"></i>
+            </button>
+        </div>
+    </div>
 <script>
 <?php include 'Alertas.php'; ?>
 function cargarDatos(idmotivo, descripcion) {
