@@ -3,13 +3,14 @@ session_start();
 require '../../config.php';
 if (isset($_GET['id'])) {
     $idaccion = $_GET['id'];
+    $idreporte = $_GET['idreporte'];
     try {
         $stmt = $pdo->prepare("DELETE FROM acciones WHERE idaccion = ?");
         $stmt->execute([$idaccion]);
-        header("Location: ../../views/acciones.php?mensaje=eliminado");
+        header("Location: ../../views/acciones.php?mensaje=eliminado&idreporte=$idreporte");
         exit();
     } catch (PDOException $e) {
-        header("Location: ../../views/acciones.php?mensaje=error");
+        header("Location: ../../views/acciones.php?mensaje=error&idreporte=$idreporte");
         exit();
     }
 }
