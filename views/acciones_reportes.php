@@ -61,6 +61,7 @@ $idreporte = $_GET['idreporte'];
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php include 'funciones/paginacion.php'; ?>
             </div>
         </div>
     </div>
