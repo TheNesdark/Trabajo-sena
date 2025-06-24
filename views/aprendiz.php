@@ -69,7 +69,7 @@ $aprendices = listarAprendices($pagina, $limite);
             </div>
         </div>
         <div class="floating-button mb-5" style="position: fixed; bottom: 20px; right: 20px;">
-            <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
+            <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Aprendices">
                 <i class="fa-solid fa-file"></i>
             </button>
             <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">

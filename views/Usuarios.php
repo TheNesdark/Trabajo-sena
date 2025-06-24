@@ -64,9 +64,9 @@ $TotalPaginas = ceil($Totalusuarios / $limite);
             </div>
         </div>
     </div>
-    <div style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
-            <i class="fa-solid fa-share"></i>
+    <div class="floating-button mb-5" style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Usuarios">
+            <i class="fa-solid fa-file"></i>
         </button>
         <div id="export-options" style="display: none; position: absolute; bottom: 70px; right: 0;">
             <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px;" onclick="location.href='../controller/Usuarios/Exportar_Usuarios.php?tipo=pdf'">
