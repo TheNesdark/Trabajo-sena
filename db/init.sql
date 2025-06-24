@@ -1,21 +1,15 @@
--- -----------------------------------------------------
--- Schema desercion
--- -----------------------------------------------------
+
 CREATE SCHEMA IF NOT EXISTS `desercion` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
 USE `desercion`;
 
--- -----------------------------------------------------
--- Table `desercion`.`programa`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `programa` (
   `idprograma` INT NOT NULL AUTO_INCREMENT,
   `nombreprograma` VARCHAR(100) NULL,
   PRIMARY KEY (`idprograma`)
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`ficha`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `ficha` (
   `nficha` INT NOT NULL,
   `idprograma` INT NOT NULL,
@@ -28,9 +22,7 @@ CREATE TABLE IF NOT EXISTS `ficha` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`aprendiz`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `aprendiz` (
   `idaprendiz` VARCHAR(20) NOT NULL,
   `tipodoc` VARCHAR(4) NULL,
@@ -42,18 +34,14 @@ CREATE TABLE IF NOT EXISTS `aprendiz` (
   PRIMARY KEY (`idaprendiz`)
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`motivo`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `motivo` (
   `idmotivo` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(40) NULL,
   PRIMARY KEY (`idmotivo`)
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`reportes`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `reportes` (
   `idreporte` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NULL,
@@ -84,9 +72,7 @@ CREATE TABLE IF NOT EXISTS `reportes` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`usuarios`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `usuario` VARCHAR(30) NOT NULL,
   `nombre` VARCHAR(50) NULL,
@@ -95,9 +81,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`usuario`)
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `desercion`.`acciones`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `acciones` (
   `idaccion` INT NOT NULL AUTO_INCREMENT,
   `idreporte` INT NOT NULL,
