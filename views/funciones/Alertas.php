@@ -17,6 +17,8 @@ let alerta = document.getElementById('alerta');
         alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el aprendiz porque contiene reportes</div>';
     <?php elseif ($_GET['mensaje'] === 'errorreporte'): ?>
         alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el reporte porque contiene acciones</div>';
+    <?php elseif ($_GET['mensaje'] === 'errormotivo'): ?>
+        alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el motivo porque contiene reportes activos</div>';
     <?php endif; ?>
     setTimeout(() => {
         let alertDiv = alerta.querySelector('.slide-out');

@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
         header("Location: ../../views/motivo.php?mensaje=eliminado");
         exit();
     } catch (PDOException $e) {
-        header("Location: ../../views/motivo.php?mensaje=error");
+        header("Location: ../../views/motivo.php?mensaje=errormotivo");
         exit();
     }
 }

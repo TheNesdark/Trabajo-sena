@@ -3,7 +3,9 @@ include 'header.php';
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
 $acciones = ListarAccionesReportes($idreporte, $pagina, $limite);
-$aprendiz = $acciones[0]['nombres'] . ' ' . $acciones[0]['apellidos'] ;
+$aprendiz = (!empty($acciones) && isset($acciones[0]['nombres'], $acciones[0]['apellidos']))
+    ? $acciones[0]['nombres'] . ' ' . $acciones[0]['apellidos']
+    : 'Aprendiz';
 $idreporte = $_GET['idreporte'];
 ?>
 <!DOCTYPE html>
