@@ -1,4 +1,17 @@
+    <style>
+        .footer-admin {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 1030;
+            padding: 10px 0;
+        }
 
+        body {
+            padding-bottom: 80px; 
+        }
+    </style>
     <footer class="footer-admin">
         <div class="footer-content">
             <div class="container-fluid">

@@ -75,7 +75,7 @@ $reportes = listarReportes($pagina, $limite);
         </div>
     </div>
 </div>
-<div class="floating-button mb-5" style="position: fixed; bottom: 20px; right: 20px;">
+<div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">
         <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte">
             <i class="fa-solid fa-file"></i>
         </button>
