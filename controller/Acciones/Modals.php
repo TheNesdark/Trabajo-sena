@@ -46,7 +46,7 @@
                     <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
                     <div class="mb-3">
                         <label for="editDescripcion" class="form-label">Descripción</label>
-                        <input type="text" class="form-control" id="editDescripcion" name="descripcion" required>
+                        <input type="text" class="form-control" id="editDescripcion" name="descripcion" value="" required>
                     </div>
                 </div>
                 <div class="modal-footer">

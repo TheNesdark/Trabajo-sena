@@ -7,10 +7,10 @@ if (isset($_GET['id'])) {
     try {
         $stmt = $pdo->prepare("DELETE FROM acciones WHERE idaccion = ?");
         $stmt->execute([$idaccion]);
-        header("Location: ../../views/acciones.php?mensaje=eliminado&idreporte=$idreporte");
+        header("Location: ../../views/acciones_reportes.php?mensaje=eliminado&idreporte=$idreporte");
         exit();
     } catch (PDOException $e) {
-        header("Location: ../../views/acciones.php?mensaje=error&idreporte=$idreporte");
+        header("Location: ../../views/acciones_reportes.php?mensaje=error&idreporte=$idreporte");
         exit();
     }
 }
