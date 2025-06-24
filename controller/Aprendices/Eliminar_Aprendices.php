@@ -1,8 +1,8 @@
 
 <?php
-include '../../config.php';
-if (isset($_GET['idaprendiz'])) {
-    $idaprendiz = $_GET['idaprendiz'];
+require '../../config.php';
+if (isset($_GET['id'])) {
+    $idaprendiz = $_GET['id'];
     try {
         $stmt = $pdo->prepare("DELETE FROM aprendiz WHERE idaprendiz = ?");
         $stmt->execute([$idaprendiz]);

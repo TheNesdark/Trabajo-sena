@@ -1,12 +1,10 @@
 <?php
 session_start();
-include '../../config.php';
-
+require '../../config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descripcion = $_POST['descripcion'];
     $idreporte = $_POST['idreporte'];
     $usuario = $_SESSION['usuario'];
-
     try {
         $stmt = $pdo->prepare("INSERT INTO acciones (idreporte, fecha, descripcion, usuario) VALUES (?, now(), ?, ?)");
         $stmt->execute([$idreporte, $descripcion, $usuario]);

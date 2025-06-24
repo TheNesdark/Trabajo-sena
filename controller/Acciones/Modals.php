@@ -8,21 +8,22 @@
             </div>
             <form method="POST" action="../controller/Acciones/Añadir_Acciones.php">
                 <div class="modal-body">
-
-                    <label for="idreporte" class="form-label">ID Reporte</label>
-                    <?php
-                        $idreporte = $_GET['idreporte'];
-                        echo "<input type='text'class='form-control' id='idreporte' name='idreporte' value='$idreporte' readonly>";
-                    ?>
-                    <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']; ?>">
+                    <div class="mb-3">
+                        <label for="idreporte" class="form-label">ID Reporte</label>
+                        <input type="text" class="form-control" id="idreporte" name="idreporte" value="<?php echo $_GET['idreporte']; ?>" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="usuario" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $_SESSION['usuario']; ?>" readonly>
+                    </div>
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripción</label>
                         <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Acción</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Acción</button>
+                    </div>
                 </div>
             </form>
         </div>

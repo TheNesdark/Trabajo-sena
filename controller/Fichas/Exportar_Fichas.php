@@ -1,5 +1,5 @@
 <?php
-include ('../../config.php');
+require ('../../config.php');
 require ('../fpdf/fpdf.php');
 
 $fichas = $pdo->query("SELECT ficha.nficha, programa.nombreprograma FROM ficha INNER JOIN programa ON ficha.idprograma = programa.idprograma")->fetchAll(PDO::FETCH_ASSOC);

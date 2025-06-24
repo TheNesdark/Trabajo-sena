@@ -1,8 +1,7 @@
 <?php
 include 'header.php';
 include '../controller/Reportes/Listar_Reportes.php';
-$limite = 10;
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+
 $reportes = listarReportes($pagina, $limite);
 ?>
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ $reportes = listarReportes($pagina, $limite);
     </div>
     
     <div class="row mb-2" style="max-width: 98%; margin:auto;">
-        <?php include 'busquedas.php'; ?>
+        <?php include 'funciones/busquedas.php'; ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
             <a href="/Trabajo-sena/views/Nuevo_Reporte.php" class="btn w-100" style="background-color: #50c8c6; color: #fff;">
                 <i class="fa-solid fa-plus"></i> Añadir Reporte
@@ -72,42 +71,26 @@ $reportes = listarReportes($pagina, $limite);
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?php include 'funciones/paginacion.php'; ?>
         </div>
-        <nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center mt-3">
-    <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-    </li>
-
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        <?= $pagina ?>
-      </span>
-    </li>
-
-    <li class="page-item <?= (count($reportes) < $limite) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-    </li>
-  </ul>
-</nav>
     </div>
 </div>
-<div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+<div style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
             <i class="fa-solid fa-share"></i>
         </button>
-        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_reportes.php?tipo=pdf'">
+        <div id="export-options" style="display: none; position: absolute; bottom: 70px; right: 0;">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px;" onclick="location.href='../controller/Reportes/Exportar_Reportes.php?tipo=pdf'">
                 <i class="fa-solid fa-file-pdf"></i>
             </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_reportes.php?tipo=excel'">
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px;" onclick="location.href='../controller/Reportes/Exportar_Reportes.php?tipo=excel'">
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
     </div>
 </body>
 <script>
-    <?php include 'Alertas.php'; ?>
+    <?php include 'funciones/Alertas.php'; ?>
 </script>
 </html>
 <?php include 'footer.php'; ?>

@@ -1,6 +1,6 @@
 
 <?php
-include '../../config.php';
+require '../../config.php';
 if (isset($_GET['id'])) {
     $idprograma = $_GET['id'];
     try {

@@ -1,5 +1,5 @@
 <?php
-include '../../config.php';
+require '../../config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idaprendiz = $_POST['idaprendiz'];
     $tipodoc = $_POST['tipodoc'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../../views/aprendiz.php?mensaje=agregado");
         exit();
     } catch (PDOException $e) {
-        header("Location: ../../views/aprendiz.php?mensaje=error");
+        header("Location: ../../views/aprendiz.php?mensaje=error&error=" . urlencode($e->getMessage()));
         exit();
     }
 }

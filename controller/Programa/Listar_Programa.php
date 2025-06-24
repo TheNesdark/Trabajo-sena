@@ -1,6 +1,7 @@
 <?php
 require '../config.php';
-
+$limite = 10;
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 function listarProgramas($pagina, $limite) {
     global $pdo;
 
@@ -9,22 +10,16 @@ function listarProgramas($pagina, $limite) {
 
     try {
         if ($busqueda !== '') {
-            $sql = "SELECT * FROM programa 
+            $stmt = $pdo->prepare("SELECT * FROM programa 
                     WHERE idprograma LIKE :busqueda 
                        OR nombreprograma LIKE :busqueda 
-                    LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
+                    LIMIT $offset, $limite");
+            $stmt->execute([':busqueda' => '%' . $busqueda . '%']);
         } else {
-            $sql = "SELECT * FROM programa 
-                    LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
+            $stmt = $pdo->prepare("SELECT * FROM programa 
+                    LIMIT $offset, $limite");
+            $stmt->execute();
         }
-
-        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-        $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
-        $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (Exception $e) {

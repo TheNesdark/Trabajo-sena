@@ -2,11 +2,12 @@
 <div class="modal fade" id="addAprendizModal" tabindex="-1" aria-labelledby="addAprendizModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="../controller/Aprendices/Añadir_Aprendices.php">
+            <form method="POST" action="../controller/Aprendices/Añadir_Aprendices.php" onsubmit="return verificarAprendizExistente();">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addAprendizModalLabel">Añadir Aprendiz</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+                <div id="alertContainer"></div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Tipo de documento</label>
@@ -21,7 +22,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Documento</label>
-                        <input type="text" class="form-control" name="idaprendiz" required>
+                        <input type="text" class="form-control" name="idaprendiz" id="documento" required>
                     </div>
 
                     <div class="mb-3">
@@ -58,17 +59,13 @@
 <div class="modal fade" id="editAprendizModal" tabindex="-1" aria-labelledby="editAprendizModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="../controller/Aprendices/Editar_Aprendices.php">
+            <form method="POST" action="../controller/Aprendices/Editar_Aprendices.php" >
                 <div class="modal-header">
                     <h5 class="modal-title" id="editAprendizModalLabel">Editar Aprendiz</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+                <div id="alertContainer"></div>
                 <div class="modal-body">
-                    <input type="hidden" id="editIdAprendiz" name="idaprendiz">
-                    <div class="mb-3">
-                        <label class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="editNombres" name="nombres">
-                    </div>
                     <div class="mb-3">
                         <label class="form-label">Tipo de documento</label>
                         <select class="form-select" id="editTipodoc" name="tipodoc" required>
@@ -79,6 +76,14 @@
                             <option value="PA">Pasaporte</option>
                             <option value="RC">Registro Civil</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Documento</label>
+                        <input type="text" class="form-control" id="editIdAprendiz" name="idaprendiz" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="editNombres" name="nombres">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Apellidos</label>

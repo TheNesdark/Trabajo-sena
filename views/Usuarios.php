@@ -2,10 +2,10 @@
 include 'header.php';
 include '../controller/Usuarios/Listar_Usuarios.php';
 include '../controller/Usuarios/Modals.php';
-$limite = 10;
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-$usuarios = listarUsuarios($pagina, $limite);
 
+$usuarios = listarUsuarios($pagina, $limite);
+$Totalusuarios = count(listarUsuarios(1, PHP_INT_MAX));
+$TotalPaginas = ceil($Totalusuarios / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +23,7 @@ $usuarios = listarUsuarios($pagina, $limite);
         </div>
         
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-            <?php include 'busquedas.php'; ?>
+            <?php include 'funciones/busquedas.php'; ?>
             <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addUserModal">
                     <i class="fa-solid fa-plus"></i> Añadir Usuario
@@ -60,46 +60,41 @@ $usuarios = listarUsuarios($pagina, $limite);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php include 'funciones/paginacion.php'; ?>
             </div>
-            <nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center mt-3">
-    <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-    </li>
-
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        <?= $pagina ?>
-      </span>
-    </li>
-
-    <li class="page-item <?= (count($usuarios) < $limite) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-    </li>
-  </ul>
-</nav>
         </div>
     </div>
-    <div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
             <i class="fa-solid fa-share"></i>
         </button>
-        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_Usuarios.php?tipo=pdf'">
+        <div id="export-options" style="display: none; position: absolute; bottom: 70px; right: 0;">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px;" onclick="location.href='../controller/Usuarios/Exportar_Usuarios.php?tipo=pdf'">
                 <i class="fa-solid fa-file-pdf"></i>
             </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_Usuarios.php?tipo=excel'">
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px;" onclick="location.href='../controller/Usuarios/Exportar_Usuarios.php?tipo=excel'">
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
     </div>
-
 <script>
-<?php include 'Alertas.php'; ?>
+<?php include 'funciones/Alertas.php'; ?>
 function CargarDatos(usuario, nombre, email) {
     document.getElementById('editUsuario').value = usuario;
     document.getElementById('editNombre').value = nombre;
     document.getElementById('editEmail').value = email;
+}
+function verificarUsuarioExistente() {
+    const usuario = document.getElementById('usuario').value.trim();
+    const alertContainer = document.getElementById('alertContainer');
+    alertContainer.innerHTML = '';
+    const usuarios = <?php echo json_encode(listarUsuarios(1, PHP_INT_MAX)); ?>;
+    if (usuarios.some(user => user.usuario === usuario)) {
+        alertContainer.innerHTML = '<div class="alert alert-danger">El usuario ya existe. Por favor, elige otro.</div>';
+        return false;
+    }
+
+    return true;
 }
 </script>
 </body>

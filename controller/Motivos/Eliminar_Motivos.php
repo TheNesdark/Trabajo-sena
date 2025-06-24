@@ -1,6 +1,5 @@
 <?php
-
-include '../../config.php';
+require '../../config.php';
 if (isset($_GET['id'])) {
     $idmotivo = $_GET['id'];
     try {

@@ -1,34 +1,29 @@
 
 <?php
 require '../config.php';
-
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 function listarFichas($pagina, $limite) {
     global $pdo;
-
     $busqueda = isset($_GET['busqueda']) ? $_GET['busqueda'] : '';
     $offset = ($pagina - 1) * $limite;
 
     try {
-        if ($busqueda !== '') {
-            $sql = "SELECT programa.nombreprograma, ficha.nficha 
+        if ($busqueda !== '') {;
+            $stmt = $pdo->prepare("SELECT programa.nombreprograma, ficha.nficha 
                     FROM ficha 
                     INNER JOIN programa ON ficha.idprograma = programa.idprograma 
                     WHERE programa.nombreprograma LIKE :busqueda 
-                       OR ficha.nficha LIKE :busqueda 
-                    LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
-        } else {
-            $sql = "SELECT programa.nombreprograma, ficha.nficha 
+                       OR ficha.nficha LIKE :busqueda
+                    LIMIT $offset, $limite");
+            $stmt->execute([':busqueda' => '%' . $busqueda . '%']);
+        } else {;
+            $stmt = $pdo->prepare("SELECT programa.nombreprograma, ficha.nficha 
                     FROM ficha 
                     INNER JOIN programa ON ficha.idprograma = programa.idprograma 
-                    LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
+                    LIMIT $offset, $limite");
+            $stmt->execute();
         }
-
-        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-        $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
-        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 

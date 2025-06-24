@@ -1,5 +1,5 @@
 <?php
-include '../../config.php';
+require '../../config.php';
 if (isset($_GET['usuario'])) {
     $usuario = $_GET['usuario'];
     try {

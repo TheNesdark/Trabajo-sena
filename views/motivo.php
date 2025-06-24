@@ -2,8 +2,6 @@
 include 'header.php'; 
 include '../controller/Motivos/Modals.php';
 require '../controller/Motivos/Listar_Motivos.php';
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-$limite = 10;
 $motivos = listarMotivos($pagina, $limite);
 ?>
 <!DOCTYPE html>
@@ -18,7 +16,7 @@ $motivos = listarMotivos($pagina, $limite);
             <h1><i class="fa-solid fa-circle-question" style="color: #50c8c6"></i> Lista de Motivos</h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-            <?php include 'busquedas.php'; ?>
+            <?php include 'funciones/busquedas.php'; ?>
             <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addMotivoModal">
                     <i class="fa-solid fa-plus"></i> Añadir Motivo
@@ -53,41 +51,24 @@ $motivos = listarMotivos($pagina, $limite);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-            <nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center mt-3">
-    <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-    </li>
-
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        <?= $pagina ?>
-      </span>
-    </li>
-
-    <li class="page-item <?= (count($motivos) < $limite) ? 'disabled' : '' ?>">
-      <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-    </li>
-  </ul>
-</nav>
+            <?php include 'funciones/paginacion.php'; ?>
         </div>
     </div>
     <div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'block' ? 'none' : 'block';">
             <i class="fa-solid fa-share"></i>
         </button>
         <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_motivos.php?tipo=pdf'">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
                 <i class="fa-solid fa-file-pdf"></i>
             </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_motivos.php?tipo=excel'">
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=excel'">
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
     </div>
 <script>
-<?php include 'Alertas.php'; ?>
+<?php include 'funciones/Alertas.php'; ?>
 function cargarDatos(idmotivo, descripcion) {
     document.getElementById('editIdMotivo').value = idmotivo;
     document.getElementById('editDescripcion').value = descripcion;

@@ -4,7 +4,9 @@ include '../config.php';
 include '../controller/Aprendices/Listar_Aprendices.php';
 include '../controller/Fichas/Listar_Fichas.php';
 include '../controller/Motivos/Listar_Motivos.php';
+
 $idreporte = $_GET['idreporte'];
+
 try {
     $stmt = $pdo->query("SELECT * FROM reportes WHERE idreporte = $idreporte");
     $reporte = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -12,6 +14,10 @@ try {
     header("Location: ../../views/Reportes.php?mensaje=error");
     exit();
 }
+
+$aprendices = listarAprendices(1,PHP_INT_MAX);
+$fichas = listarFichas(1,PHP_INT_MAX);
+$motivos = listarMotivos(1,PHP_INT_MAX);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +83,6 @@ try {
                             <select name="idaprendiz" id="idaprendiz" class="form-select" required>
                                 <option value="" disabled>Seleccione un aprendiz</option>
                                 <?php
-                                $aprendices = listarAprendices();
                                 if (!$aprendices) {
                                     echo "<option value=''>No hay aprendices disponibles</option>";
                                 } else {
@@ -96,7 +101,6 @@ try {
                             <select name="nficha" id="nficha" class="form-select" required>
                                 <option value="" disabled>Seleccione una ficha</option>
                                 <?php
-                                $fichas = listarFichas();
                                 if (!$fichas) {
                                     echo "<option value=''>No hay fichas disponibles</option>";
                                 } else {
@@ -115,7 +119,6 @@ try {
                             <select name="idmotivo" class="form-select" required>
                                 <option value="" disabled>Seleccione un motivo</option>
                                 <?php
-                                $motivos = listarMotivos();
                                 if (!$motivos) {
                                     echo "<option value=''>No hay motivos disponibles</option>";
                                 } else {

@@ -1,6 +1,6 @@
 <?php
-
-include '../../config.php';
+session_start();
+require '../../config.php';
 if (isset($_GET['id'])) {
     $idaccion = $_GET['id'];
     try {

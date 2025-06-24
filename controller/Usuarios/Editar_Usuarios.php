@@ -1,5 +1,5 @@
 <?php
-include '../../config.php';
+require '../../config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'];
     $nombre = $_POST['nombre'];

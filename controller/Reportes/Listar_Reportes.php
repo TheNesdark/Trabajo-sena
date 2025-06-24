@@ -1,5 +1,7 @@
 <?php
 require '../config.php';
+$limite = 10;
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
 function listarReportes($pagina, $limite) {
     global $pdo;
@@ -9,7 +11,7 @@ function listarReportes($pagina, $limite) {
 
     try {
         if ($busqueda !== '') {
-            $sql = "
+            $stmt = $pdo->prepare("
                 SELECT 
                     reportes.idreporte,
                     aprendiz.nombres AS nombre_aprendiz,
@@ -26,13 +28,16 @@ function listarReportes($pagina, $limite) {
                 INNER JOIN ficha ON reportes.nficha = ficha.nficha
                 INNER JOIN programa ON ficha.idprograma = programa.idprograma
                 INNER JOIN motivo ON reportes.idmotivo = motivo.idmotivo
-                WHERE aprendiz.nombres LIKE :busqueda
-                   OR aprendiz.idaprendiz LIKE :busqueda
-                LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
+                WHERE aprendiz.nombres LIKE ?
+                   OR aprendiz.apellidos LIKE ?
+                   OR aprendiz.idaprendiz LIKE ?
+                   OR ficha.nficha LIKE ?
+                   OR programa.nombreprograma LIKE ?
+                LIMIT $offset, $limite
+            ");
+            $stmt->execute(['%' . $busqueda . '%', '%' . $busqueda . '%', '%' . $busqueda . '%', '%' . $busqueda . '%', '%' . $busqueda . '%']);
         } else {
-            $sql = "
+            $stmt = $pdo->prepare("
                 SELECT 
                     reportes.idreporte,
                     aprendiz.nombres AS nombre_aprendiz,
@@ -49,22 +54,17 @@ function listarReportes($pagina, $limite) {
                 INNER JOIN ficha ON reportes.nficha = ficha.nficha
                 INNER JOIN programa ON ficha.idprograma = programa.idprograma
                 INNER JOIN motivo ON reportes.idmotivo = motivo.idmotivo
-                LIMIT :offset, :limite";
-            $stmt = $pdo->prepare($sql);
+                LIMIT $offset, $limite
+            ");
+            $stmt->execute();
         }
-
-        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-        $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
-        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (PDOException $e) {
-        error_log('Error en listarReportes: ' . $e->getMessage());
-        header("Location: ../../views/Reportes.php?mensaje=error");
-        exit();
+        echo "Error al listar reportes: " . $e->getMessage();
+        return [];
     }
 }
 ?>
-
 

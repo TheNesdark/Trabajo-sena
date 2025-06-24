@@ -1,5 +1,5 @@
 <?php
-include ('../../config.php');
+require ('../../config.php');
 require ('../fpdf/fpdf.php');
 
 $motivos = $pdo->query("SELECT * FROM motivo")->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +14,7 @@ function exportarPDF($motivos) {
 
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->Cell(40, 10, 'ID', 1);
-    $pdf->Cell(50, 10, 'Descripción', 1);
+    $pdf->Cell(50, 10, 'Descripcion', 1);
     $pdf->Ln();
 
     foreach ($motivos as $motivo) {
@@ -32,7 +32,7 @@ function exportarExcel($motivos) {
     header("Pragma: no-cache");
     header("Expires: 0");
 
-    echo "ID\tDescripción\n";
+    echo "ID\tDescripcion\n";
 
     foreach ($motivos as $motivo) {
         echo utf8_decode($motivo['idmotivo']) . "\t" . utf8_decode($motivo['descripcion']) . "\n";

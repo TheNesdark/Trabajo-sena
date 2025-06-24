@@ -1,27 +1,29 @@
 <?php
 require '../config.php';
+$limite = 10;
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
 function listarAprendices($pagina, $limite) {
     global $pdo;
-
     $busqueda = isset($_GET['busqueda']) ? $_GET['busqueda'] : '';
     $offset = ($pagina - 1) * $limite;
 
     if ($busqueda !== '') {
-        $sql = "SELECT * FROM aprendiz 
-                WHERE nombres LIKE :busqueda OR apellidos LIKE :busqueda OR idaprendiz LIKE :busqueda 
-                LIMIT :offset, :limite";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':busqueda', "%$busqueda%", PDO::PARAM_STR);
+        $stmt = $pdo->prepare("SELECT * FROM aprendiz 
+                WHERE nombres LIKE :busqueda 
+                OR apellidos LIKE :busqueda 
+                OR idaprendiz LIKE :busqueda
+                OR tipodoc LIKE :busqueda
+                OR celular LIKE :busqueda
+                OR email LIKE :busqueda
+                OR direccion LIKE :busqueda
+                LIMIT $offset, $limite");
+        $stmt->execute([':busqueda' => '%' . $busqueda . '%']);
+ 
     } else {
-        $sql = "SELECT * FROM aprendiz LIMIT :offset, :limite";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $pdo->prepare("SELECT * FROM aprendiz LIMIT $offset, $limite");
+        $stmt->execute();
     }
-    
-    $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-    $stmt->bindValue(':limite', (int)$limite, PDO::PARAM_INT);
-    $stmt->execute();
-
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>

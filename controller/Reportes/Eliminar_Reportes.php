@@ -1,5 +1,5 @@
 <?php
-include '../../config.php';
+require '../../config.php';
 if (isset($_GET['idreporte'])) {
     $idreporte = $_GET['idreporte'];
     try {
@@ -9,7 +9,7 @@ if (isset($_GET['idreporte'])) {
         header("Location: ../../views/reportes.php?mensaje=eliminado");
         exit();
     } catch (PDOException $e) {
-        header("Location: ../../views/reportes.php?mensaje=error");
+        header("Location: ../../views/reportes.php?mensaje=errorreporte");
         exit();
     }
 }

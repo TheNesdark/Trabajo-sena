@@ -1,7 +1,14 @@
 <?php
-include ('../../config.php');
+require ('../../config.php');
 require ('../fpdf/fpdf.php');
 
+if (isset($_GET['tipo']) && $_GET['tipo'] === 'pdf') {
+    exportarPDF($usuarios);
+} elseif (isset($_GET['tipo']) && $_GET['tipo'] === 'excel') {
+    exportarExcel($usuarios);
+} else {
+    echo "Especifica el tipo de exportación: 'pdf' o 'excel'.";
+}
 
 $usuarios = $pdo->query("SELECT * FROM usuarios")->fetchAll(PDO::FETCH_ASSOC);
 
@@ -42,10 +49,3 @@ function exportarExcel($usuarios) {
     }
 }
 
-if (isset($_GET['tipo']) && $_GET['tipo'] === 'pdf') {
-    exportarPDF($usuarios);
-} elseif (isset($_GET['tipo']) && $_GET['tipo'] === 'excel') {
-    exportarExcel($usuarios);
-} else {
-    echo "Especifica el tipo de exportación: 'pdf' o 'excel'.";
-}

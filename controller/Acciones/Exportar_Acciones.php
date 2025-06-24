@@ -1,9 +1,8 @@
 <?php
-// filepath: c:\Users\Maria Alejandra\Documents\Github\Trabajo\Trabajo-sena\controller\Acciones\Exportar_Acciones.php
-include ('../../config.php');
+session_start();
+require ('../../config.php');
 require ('../fpdf/fpdf.php');
 
-// Consulta para obtener las acciones
 $acciones = $pdo->query("SELECT idaccion, nombreaccion, descripcion, fecha_creacion FROM acciones")->fetchAll(PDO::FETCH_ASSOC);
 
 function exportarPDF($acciones) {
@@ -19,6 +18,7 @@ function exportarPDF($acciones) {
     $pdf->Cell(50, 10, 'Nombre', 1);
     $pdf->Cell(80, 10, 'Descripción', 1);
     $pdf->Cell(40, 10, 'Fecha Creación', 1);
+    $pdf->Cell(40,10, 'Usuario', 1);
     $pdf->Ln();
 
     foreach ($acciones as $accion) {
@@ -26,6 +26,7 @@ function exportarPDF($acciones) {
         $pdf->Cell(50, 10, utf8_decode($accion['nombreaccion']), 1);
         $pdf->Cell(80, 10, utf8_decode($accion['descripcion']), 1);
         $pdf->Cell(40, 10, utf8_decode($accion['fecha_creacion']), 1);
+        $pdf->Cell(40, 10, utf8_decode($accion['usuario']), 1);
         $pdf->Ln();
     }
 

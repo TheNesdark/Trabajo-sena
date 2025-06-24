@@ -15,6 +15,8 @@ let alerta = document.getElementById('alerta');
         alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar la ficha porque contiene reportes</div>';
     <?php elseif ($_GET['mensaje'] === 'erroraprendiz'): ?>
         alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el aprendiz porque contiene reportes</div>';
+    <?php elseif ($_GET['mensaje'] === 'errorreporte'): ?>
+        alerta.innerHTML = '<div class="alert alert-danger slide-out">No se puede eliminar el reporte porque contiene acciones</div>';
     <?php endif; ?>
     setTimeout(() => {
         let alertDiv = alerta.querySelector('.slide-out');
@@ -25,8 +27,3 @@ let alerta = document.getElementById('alerta');
         }, 1000);
     }, 5000);
 <?php endif; ?>
-
-function toggleOptions() {
-        const options = document.getElementById('export-options');
-        options.style.display = options.style.display === 'none' ? 'block' : 'none';
-    }

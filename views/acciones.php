@@ -2,8 +2,6 @@
 include 'header.php'; 
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-$limite = 10;
 $acciones = listarAcciones($pagina, $limite);
 ?>
 <!DOCTYPE html>
@@ -20,80 +18,51 @@ $acciones = listarAcciones($pagina, $limite);
             <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-        <?php include 'busquedas.php'; ?>
+        <?php include 'funciones/busquedas.php'; ?>
     </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">
                     <thead>
                         <tr>
-                            <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> ID Reporte</th>
-                            <th class='text-center w-20'><i class="fa-solid fa-user"></i> Aprendiz</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> ID Accion</th>
                             <th class='text-center w-20'><i class="fa-solid fa-align-left"></i> Descripción</th>
-                            <th class='text-center w-20'><i class="fa-solid fa-cog"></i> Acciones</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-clock"></i> Aprendiz</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-calendar"></i> Fecha</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-user"></i> Usuario</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-cog"></i> ID Reporte</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-
-                            foreach ($acciones as $accion): ?>
+                        <?php foreach ($acciones as $accion): ?>
                         <tr>
-                            <td class='text-center'><?php echo $accion['idreporte']; ?></td>
-                            <td class='text-center'><?php echo $accion['nombres'] . ' ' . $accion['apellidos']; ?></td>
+                            <td class='text-center'><?php echo $accion['idaccion']; ?></td>
                             <td class='text-center'><?php echo $accion['descripcion']; ?></td>
-                            <td class='text-center'>
-                                <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editAccionModal" onclick="CargarDatos(<?php echo $accion['idaccion']; ?>, '<?php echo htmlspecialchars($accion['descripcion']); ?>')">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <a href="../controller/Acciones/Eliminar_Acciones.php?id=<?php echo $accion['idaccion']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta acción?')">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
+                            <td class='text-center'><?php echo $accion['nombres'] . ' ' . $accion['apellidos']; ?></td>
+                            <td class='text-center'><?php echo $accion['fecha']; ?></td>
+                            <td class='text-center'><?php echo $accion['usuario']; ?></td>
+                            <td class='text-center'><?php echo $accion['idreporte']; ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center mt-3">
-                  <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-                  </li>
-                                            
-                  <li class="page-item active" aria-current="page">
-                    <span class="page-link">
-                      <?= $pagina ?>
-                    </span>
-                  </li>
-                                            
-                  <li class="page-item <?= (count($acciones) < $limite) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-                  </li>
-                </ul>
-            </nav>
+            <?php include 'funciones/paginacion.php'?>
         </div>
     </div>
     <div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
             <i class="fa-solid fa-share"></i>
         </button>
         <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_acciones.php?tipo=pdf'">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=pdf'">
                 <i class="fa-solid fa-file-pdf"></i>
             </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_acciones.php?tipo=excel'">
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=excel'">
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
     </div>
-
-<script>
-<?php include 'Alertas.php'; ?>
-    function CargarDatos(id, descripcion) {
-        document.getElementById('editIdAccion').value = id;
-        document.getElementById('editDescripcion').value = descripcion;
-    }
-</script>
 </body>
 </html>
 <?php include 'footer.php'; ?>

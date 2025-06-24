@@ -2,8 +2,6 @@
 include 'header.php';
 include '../controller/Fichas/Listar_Fichas.php';
 include '../controller/Fichas/Modals.php';
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-$limite = 10;
 $fichas = listarFichas($pagina, $limite);
 ?>
 <!DOCTYPE html>
@@ -21,7 +19,7 @@ $fichas = listarFichas($pagina, $limite);
         </div>
         
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-            <?php include 'busquedas.php'; ?>
+            <?php include 'funciones/busquedas.php'; ?>
             <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addFichaModal">
                     <i class="fa-solid fa-plus"></i> Añadir Ficha
@@ -48,7 +46,7 @@ $fichas = listarFichas($pagina, $limite);
                                 <a href="../controller/Fichas/Eliminar_Fichas.php?id=<?php echo $ficha['nficha']; ?>" class="btn btn-danger btn-sm me-1" onclick="return confirm('¿Seguro que deseas eliminar esta ficha?')">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editFichaModal" onclick="CargarDatos(<?php echo $ficha['nficha']; ?>, '<?php echo htmlspecialchars($ficha['nficha']); ?>', '<?php echo htmlspecialchars($ficha['nombreprograma']); ?>')">
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editFichaModal" onclick="CargarDatos('<?php echo htmlspecialchars($ficha['nficha']); ?>', '<?php echo htmlspecialchars($ficha['nombreprograma']); ?>')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -56,45 +54,42 @@ $fichas = listarFichas($pagina, $limite);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php include 'funciones/paginacion.php'; ?>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center mt-3">
-                  <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-                  </li>
-                                            
-                  <li class="page-item active" aria-current="page">
-                    <span class="page-link">
-                      <?= $pagina ?>
-                    </span>
-                  </li>
-                                            
-                  <li class="page-item <?= (count($fichas) < $limite) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>&busqueda=<?= isset($_GET['busqueda']) ? urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-                  </li>
-                </ul>
-            </nav>
         </div>
     </div>
     <div class="floating-button" style="position: fixed; bottom: 20px; right: 20px;">
-        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="toggleOptions()">
+        <button class="btn btn-primary rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';">
             <i class="fa-solid fa-share"></i>
         </button>
         <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_fichas.php?tipo=pdf'">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Fichas/Exportar_fichas.php?tipo=pdf'">
                 <i class="fa-solid fa-file-pdf"></i>
             </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Usuarios/Exportar_fichas.php?tipo=excel'">
+            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Fichas/Exportar_fichas.php?tipo=excel'">
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-<?php include 'Alertas.php'; ?>
-function CargarDatos(id, numero, idprograma) {
-    document.getElementById('numero').value = id;
-    document.getElementById('editIdPrograma').value = idprograma;
+<?php include 'funciones/Alertas.php'; ?>
+function CargarDatos(id, programa) {
+    document.getElementById('editNumero').value = id;
+    document.getElementById('editPrograma').value = programa;
+}
+function verificarFichaExistente() {
+    const numero = document.getElementById('numero').value.trim();
+    const alertContainer = document.getElementById('alertContainer');
+    alertContainer.innerHTML = '';
+    const fichas = <?php echo json_encode(ListarFichas(1, PHP_INT_MAX)); ?>;
+
+    if (fichas.some(ficha => ficha.nficha === numero)) {
+        alertContainer.innerHTML = '<div class="alert alert-danger">La ficha ya está registrada.</div>';
+        return false;
+    }
+
+    return true;
 }
 </script>
 </body>

@@ -1,6 +1,6 @@
 
 <?php
-include '../../config.php';
+require '../../config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $numero = $_POST['numero'];
     $idprograma = $_POST['idprograma'];
