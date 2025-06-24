@@ -8,7 +8,7 @@
         }
         
         .navbar-custom {
-            background: linear-gradient(135deg,#bada5f,#a7cd2c);
+            background: linear-gradient(135deg,#6fcf21, #5eb319);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -302,7 +302,7 @@
 /* Footer */
         
 .footer-admin {
-    background: linear-gradient(135deg, #a7cd2c, #bada5f);
+    background: linear-gradient(135deg, #6fcf21, #5eb319);
     position: fixed;
     bottom: 0;
     left: 0;
