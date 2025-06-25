@@ -1,10 +1,11 @@
 <?php
-$host = 'localhost';
-$db = 'desercion';
+$host = 'maglev.proxy.rlwy.net';
+$db = 'railway';
 $user = 'root';
-$pass = '';
+$pass = 'zVHVOCGHlSzppRHfLawkivwYaWTHlKlO';
+$port = 35132;
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
