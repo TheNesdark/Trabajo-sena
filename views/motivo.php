@@ -54,21 +54,39 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class='text-center w-20'></th>
+                            <th class='text-center w-20'><?php include 'funciones/paginacion.php'; ?></th>
+                            <th class='text-center w-20'>
+                                <div class="floating-button text-center" style="position: relative;">
+                                    <button class="btn btn-danger rounded-circle"
+                                        style="width: 60px; height: 60px;"
+                                        onclick="this.nextElementSibling.style.display = 
+                                        this.nextElementSibling.style.display === 'none' ? 'block' : 'none';"
+                                        title="Exportar Reporte Motivos">
+                                        <i class="fa-solid fa-file"></i>
+                                    </button>
+                            
+                                    <div class="btn-group-vertical export-options"
+                                        style="display: none; position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+                                        <button class="btn btn-primary rounded-circle mb-2"
+                                            style="width: 60px; height: 60px;"
+                                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </button>
+                                        <button class="btn btn-success rounded-circle"
+                                            style="width: 60px; height: 60px;"
+                                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=excel'">
+                                            <i class="fa-solid fa-file-excel"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </tfoot>
                 </table>
-                <div class="floating-button mb-5" style="position: relative; bottom: 10%; right: 20px;">
-        <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Motivos">
-            <i class="fa-solid fa-file"></i>
-        </button>
-        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
-                <i class="fa-solid fa-file-pdf"></i>
-            </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=excel'">
-                <i class="fa-solid fa-file-excel"></i>
-            </button>
         </div>
-        </div>
-        <?php include 'funciones/paginacion.php'; ?>
     </div>
 
     </div>
