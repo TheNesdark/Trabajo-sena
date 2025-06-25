@@ -66,10 +66,8 @@ $aprendices = listarAprendices($pagina, $limite);
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="7" class='text-center w-20'>
+                            <th colspan="8" class='text-center w-20'>
                                 <?php include 'funciones/paginacion.php'; ?>
-                            </th>
-                            <th class='text-center w-20'>
                                 <div class="floating-button text-center" style="position: relative;">
                                     <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Aprendices">
                                         <i class="fa-solid fa-file"></i>
