@@ -447,6 +447,13 @@
         font-size: 0.7rem;
         padding: 0.2rem 0.5rem;
     }
+
+    thead th {
+        font-size: 0.65rem; /* Tamaño reducido en móvil */
+    }
+    tbody td{
+        font-size: 0.65rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -480,6 +487,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+
+
 
 
 
