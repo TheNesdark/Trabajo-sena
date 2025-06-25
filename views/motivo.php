@@ -3,6 +3,9 @@ include 'header.php';
 include '../controller/Motivos/Modals.php';
 require '../controller/Motivos/Listar_Motivos.php';
 $motivos = listarMotivos($pagina, $limite);
+$totalMotivos = count(ListarMotivos(1,PHP_INT_MAX));
+$TotalPaginas = ceil($totalMotivos / $limite);
+
 
 ?>
 <!DOCTYPE html>
@@ -52,8 +55,8 @@ $motivos = listarMotivos($pagina, $limite);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            <?php include 'funciones/paginacion.php'; ?>
         </div>
+        <?php include 'funciones/paginacion.php'; ?>
     </div>
     <div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">
         <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Motivos">
@@ -75,6 +78,6 @@ function cargarDatos(idmotivo, descripcion) {
     document.getElementById('editDescripcion').value = descripcion;
 }
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>
-<?php include 'footer.php'; ?>
