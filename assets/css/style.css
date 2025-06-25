@@ -5,6 +5,7 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            margin-bottom: 50px;
         }
         
         .navbar-custom {
@@ -420,7 +421,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     body {
-        padding-bottom: 120px; /* Más espacio en móvil */
+        padding-bottom: 180px; /* Más espacio en móvil */
     }
     
     .footer-content {

@@ -55,10 +55,7 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-        </div>
-        <?php include 'funciones/paginacion.php'; ?>
-    </div>
-    <div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">
+                <div class="floating-button mb-5" style="position: relative; bottom: 10%; right: 20px;">
         <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Motivos">
             <i class="fa-solid fa-file"></i>
         </button>
@@ -70,7 +67,12 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                 <i class="fa-solid fa-file-excel"></i>
             </button>
         </div>
+        </div>
+        <?php include 'funciones/paginacion.php'; ?>
     </div>
+
+    </div>
+
 <script>
 <?php include 'funciones/Alertas.php'; ?>
 function cargarDatos(idmotivo, descripcion) {
