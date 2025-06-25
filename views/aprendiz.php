@@ -66,8 +66,7 @@ $aprendices = listarAprendices($pagina, $limite);
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th class='text-center w-20'></th>
-                            <th colspan="6" class='text-center w-20'>
+                            <th colspan="7" class='text-center w-20'>
                                 <?php include 'funciones/paginacion.php'; ?>
                             </th>
                             <th class='text-center w-20'>
