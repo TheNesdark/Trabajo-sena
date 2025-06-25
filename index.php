@@ -12,7 +12,7 @@
 <div class="container mt-5">
     <div class="hero-section">
                 <h1><i class="fa-solid fa-headset"></i> Sistema Deserción</h1>
-                <p class="subtitle">Administra la deserción en SENA de manera eficiente</p>
+                <p class="subtitle">Administra la deserción en SENA de manera eficiente y confiable</p>
             </div>
 
     <div class="row g-4 mb-5">
