@@ -161,7 +161,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db);
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #50c8c6);
             background-size: 300% 100%;
             animation: gradient-wave 4s ease infinite;
         }
@@ -212,10 +212,10 @@
     text-align: center;
     margin-bottom: 40px;
     padding: 20px;
-    background: linear-gradient(45deg, #50c8c6 0%, #46e6e3 100%);
+    background: linear-gradient(45deg, #50c8c6 0%, #21dbd8 100%);
     border-radius: 15px;
-    color: rgb(0, 0, 0);
-    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+    color: #000000;
+    box-shadow: 0 10px 30px rgb(80, 200, 198, 0.4);
 }
 
 .hero-section h1 {
@@ -227,11 +227,11 @@
 
 .hero-section .subtitle {
     font-size: 1.1rem;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .card-module {
-    background: white;
+    background: #ffffff;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -249,7 +249,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #cee891, #e1f5c4);
+    background: linear-gradient(90deg, #5EB319, #90D743);
 }
 
 .card-module:hover {
@@ -271,6 +271,7 @@
     transition: all 0.3s ease;
     border: 2px solid transparent;
     margin-bottom: 15px;
+    color: #000000;
 }
 
 .module-btn i {
@@ -278,26 +279,27 @@
 }
 
 .btn-personas {
-    background: linear-gradient(45deg, #cee891, #e1f5c4);
-    color: rgb(0, 0, 0);
+    background: linear-gradient(45deg, #347B00, #5EB319);
+    color: #ffffff;
 }
 
 .btn-personas:hover {
-    color: rgb(0, 0, 0);
+    color: #ffffff;
     transform: scale(1.02);
-    box-shadow: 0 8px 20px #cee891;
+    box-shadow: 0 8px 20px rgba(52, 123, 0, 0.6);
 }
 
 .btn-cursos {
-    background: linear-gradient(45deg, #50c8c6, #04cac7);
-    color: rgb(0, 0, 0);
+    background: linear-gradient(45deg, #5EB319, #347B00);
+    color: #ffffff;
 }
 
 .btn-cursos:hover {
-    color: rgb(0, 0, 0);
+    color: #ffffff;
     transform: scale(1.02);
-    box-shadow: 0 8px 20px #50c8c6;
+    box-shadow: 0 8px 20px rgba(52, 123, 0, 0.6);
 }
+
 
 /* Footer */
         
@@ -371,13 +373,14 @@
 }
 
 .footer-link:hover {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
+    background-color: #306b00bd;
 }
 
 .footer-link:hover i {
-    color: #f39c12;
+    color: #50c8c6;
     transform: scale(1.1);
 }
 
@@ -477,6 +480,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+
+
 
 
  

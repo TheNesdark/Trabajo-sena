@@ -15,11 +15,11 @@
                 <p class="subtitle">Administra la deserción en SENA de manera eficiente</p>
             </div>
 
-    <div class="row g-4">
+    <div class="row g-4 mb-5">
                 <div class="col-lg-6">
                     <div class="card-module">
                         <h4 class="text-center mb-3">
-                            <i class="fa-solid fa-building-columns" style="color: #cee891;"></i>
+                            <i class="fa-solid fa-building-columns" style="color: #50c8c6;"></i>
                             Formacion y Participantes
                         </h4>
                         <a href="views/aprendiz.php" class="module-btn btn-personas">

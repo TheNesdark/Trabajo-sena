@@ -56,17 +56,31 @@ $reportes = listarReportes($pagina, $limite);
                     <td class='text-center'><?php echo $reporte['observaciones']; ?></td>
                     <td class='text-center'><?php echo $reporte['estado']; ?></td>
                     <td class='text-center'><?php echo $reporte['fecha']; ?></td>
-                    <td class='text-center'>
-                        <a href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-warning btn-sm me-1">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este reporte?');">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                        <a href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" class="btn btn-info btn-sm">
-                            <i class="fas fa-eye"></i>
-                        </a>
+                    <td class="text-center">
+                        <div class="dropdown">
+                          <button class="btn btn-primary btn-sm" type="button" id="dropdownMenuButton<?php echo $reporte['idreporte']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-sort"></i>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $reporte['idreporte']; ?>">
+                            <li>
+                              <a class="dropdown-item text-warning" href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>">
+                                <i class="fas fa-edit"></i> Editar
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" onclick="return confirm('¿Está seguro de eliminar este reporte?');">
+                                <i class="fas fa-trash"></i> Eliminar
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item text-info" href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>">
+                                <i class="fas fa-eye"></i> Accion
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                     </td>
+
                 </tr>
                     <?php endforeach; ?>
                 </tbody>
