@@ -6,7 +6,6 @@
     left: 0;
     right: 0;
     width: 100% !important;
-    background-color: #f8f9fa;
     border-top: 1px solid #dee2e6;
     padding: 15px 0;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -18,33 +17,21 @@ body {
     padding-bottom: 100px; /* Aumentado de 80px a 100px */
 }
 
-/* Estilos para los enlaces del footer */
-.footer-link {
-    transition: color 0.2s ease;
-}
 
-.footer-link:hover {
-    color: #007bff !important;
-}
-
-/* Badge de versión */
 .version-badge {
-    background-color: #28a745;
-    color: white;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 0.85rem;
     display: inline-block;
 }
 
-/* Ajustes para móviles */
 @media (max-width: 768px) {
     .footer-admin {
         padding: 12px 0;
     }
     
     body {
-        padding-bottom: 120px; /* Más espacio en móviles porque el contenido es más alto */
+        padding-bottom: 120px; 
     }
     
     .admin-actions {
