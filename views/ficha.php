@@ -53,6 +53,13 @@ $fichas = listarFichas($pagina, $limite);
                         </tr>  
                         <?php endforeach; ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class='text-center w-20'></th>
+                            <th class='text-center w-20'></th>
+                            <th class='text-center w-20'></th>
+                        </tr>
+                    </tfoot>
                 </table>
                 <?php include 'funciones/paginacion.php'; ?>
             </div>
