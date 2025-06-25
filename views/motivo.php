@@ -3,6 +3,7 @@ include 'header.php';
 include '../controller/Motivos/Modals.php';
 require '../controller/Motivos/Listar_Motivos.php';
 $motivos = listarMotivos($pagina, $limite);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
