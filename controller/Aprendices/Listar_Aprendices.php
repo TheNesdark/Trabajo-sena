@@ -17,6 +17,7 @@ function listarAprendices($pagina, $limite) {
                 OR celular LIKE :busqueda
                 OR email LIKE :busqueda
                 OR direccion LIKE :busqueda
+                OR nficha LIKE :busqueda
                 LIMIT $offset, $limite");
         $stmt->execute([':busqueda' => '%' . $busqueda . '%']);
  

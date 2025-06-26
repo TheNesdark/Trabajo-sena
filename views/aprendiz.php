@@ -53,6 +53,7 @@ $aprendices = listarAprendices($pagina, $limite);
                             <th class='text-center w-20'><i class="fa-solid fa-phone"></i> Celular</th>
                             <th class='text-center w-20'><i class="fa-solid fa-envelope"></i> Correo</th>
                             <th class='text-center w-20'><i class="fa-solid fa-map-marker-alt"></i> Dirección</th>
+                            <th class='text-center w-20'><i class="fa-solid fa-id-card"></i> nficha</th>
                             <th class='text-center w-20'><i class="fa-solid fa-cog"></i> Acciones</th>
                         </tr>
                     </thead>
@@ -66,6 +67,7 @@ $aprendices = listarAprendices($pagina, $limite);
                                 <td class='text-center'><?php echo $aprendiz['celular']; ?></td>
                                 <td class='text-center'><?php echo $aprendiz['email']; ?></td>
                                 <td class='text-center'><?php echo $aprendiz['direccion']; ?></td>
+                                <td class='text-center'><?php echo $aprendiz['nficha']; ?></td>
                                 <td class='text-center'>
                                     <a href="../controller/Aprendices/Eliminar_Aprendices.php?id=<?php echo $aprendiz['idaprendiz']; ?>" class='btn btn-danger btn-sm me-1' onclick="return confirm('¿Está seguro de eliminar este aprendiz?');">
                                         <i class='fas fa-trash'></i>
