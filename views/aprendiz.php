@@ -77,15 +77,9 @@ $aprendices = listarAprendices($pagina, $limite);
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th colspan="8" class='text-center w-20'>
-                                <?php include 'funciones/paginacion.php'; ?>
-                            </th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
+            <?php include 'funciones/paginacion.php'; ?>
         </div>
     </div>
 <script>

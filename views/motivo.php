@@ -35,7 +35,7 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                     </button>
 
                     <div class="btn-group-vertical export-options"
-                        style="display: none; position: absolute; bottom: 3%; left: 50%; transform: translateX(-50%); z-index: 1000;">
+                        style="display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); z-index: 1000;">
                         <button class="btn btn-primary rounded-circle mb-2"
                             style="width: 40px; height: 40px;"
                             onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
@@ -77,17 +77,9 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class='text-center w-20'></th>
-                            <th class='text-center w-20'><?php include 'funciones/paginacion.php'; ?></th>
-                            <th class='text-center w-20'>
-                                
-                            </th>
-                        </tr>
-                    </tfoot>
                 </table>
         </div>
+        <?php include 'funciones/paginacion.php'; ?>
     </div>
 
     </div>

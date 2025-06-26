@@ -28,7 +28,7 @@ $fichas = listarFichas($pagina, $limite);
                     <button class="btn btn-danger rounded-circle" style="width: 40px; height: 40px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Fichas">
                         <i class="fa-solid fa-file"></i>
                     </button>
-                    <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 40px; right: 0;">
+                    <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 100%; right: 0;">
                         <button class="btn btn-primary rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Fichas/Exportar_fichas.php?tipo=pdf'">
                             <i class="fa-solid fa-file-pdf"></i>
                         </button>
@@ -66,13 +66,6 @@ $fichas = listarFichas($pagina, $limite);
                         </tr>  
                         <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class='text-center w-20'></th>
-                            <th class='text-center w-20'></th>
-                            <th class='text-center w-20'></th>
-                        </tr>
-                    </tfoot>
                 </table>
                 <?php include 'funciones/paginacion.php'; ?>
             </div>

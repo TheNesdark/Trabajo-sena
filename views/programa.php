@@ -24,6 +24,19 @@ $programas = listarProgramas($pagina, $limite);
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addProgramaModal">
                     <i class="fa-solid fa-plus"></i> Añadir Programa
                 </button>
+                <div class="floating-button text-center" style="position: relative; margin-left: 2%">
+        <button class="btn btn-danger rounded-circle" style="width: 40px; height: 40px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'block' ? 'none' : 'block';" title="Exportar Reporte Programas">
+            <i class="fa-solid fa-file"></i>
+        </button>
+        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 100%; right: 0;">
+            <button class="btn btn-primary rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/programa/Exportar_programas.php?tipo=pdf'">
+                <i class="fa-solid fa-file-pdf"></i>
+            </button>
+            <button class="btn btn-success rounded-circle" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/programa/Exportar_programas.php?tipo=excel'">
+                <i class="fa-solid fa-file-excel"></i>
+            </button>
+        </div>
+    </div>
             </div>
         </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
@@ -53,29 +66,9 @@ $programas = listarProgramas($pagina, $limite);
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th class='text-center w-20'></th>
-                            <th class='text-center w-20'></th>
-                            <th class='text-center w-20'></th>
-                        </tr>
-                    </tfoot>
                 </table>
-                <?php include 'funciones/paginacion.php'; ?>
             </div>
-        </div>
-    </div>
-    <div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">
-        <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'block' ? 'none' : 'block';" title="Exportar Reporte Programas">
-            <i class="fa-solid fa-file"></i>
-        </button>
-        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/programa/Exportar_programas.php?tipo=pdf'">
-                <i class="fa-solid fa-file-pdf"></i>
-            </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/programa/Exportar_programas.php?tipo=excel'">
-                <i class="fa-solid fa-file-excel"></i>
-            </button>
+            <?php include 'funciones/paginacion.php'; ?>
         </div>
     </div>
 <script>
