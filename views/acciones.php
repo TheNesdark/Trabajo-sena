@@ -18,8 +18,8 @@ $acciones = listarAcciones($pagina, $limite);
             <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
         <div class="row mb-2" style="max-width: 98%; margin:auto;">
-        <?php include 'funciones/busquedas.php'; ?>
-    </div>
+            <?php include 'funciones/busquedas.php'; ?>
+        </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">

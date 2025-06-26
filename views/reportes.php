@@ -58,7 +58,7 @@ $reportes = listarReportes($pagina, $limite);
                     <td class='text-center'><?php echo $reporte['fecha']; ?></td>
                     <td class="text-center">
                         <div class="dropdown">
-                          <button class="btn btn-primary btn-sm" type="button" id="dropdownMenuButton<?php echo $reporte['idreporte']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
+                          <button class="btn btn-sm" style="background: #50c8c6" type="button" id="dropdownMenuButton<?php echo $reporte['idreporte']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-sort"></i>
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $reporte['idreporte']; ?>">

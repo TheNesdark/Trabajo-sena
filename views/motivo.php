@@ -25,6 +25,29 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addMotivoModal">
                     <i class="fa-solid fa-plus"></i> Añadir Motivo
                 </button>
+                <div class="floating-button text-center" style="position: relative; margin-left: 2%">
+                    <button class="btn btn-danger rounded-circle"
+                        style="width: 40px; height: 40px;"
+                        onclick="this.nextElementSibling.style.display = 
+                        this.nextElementSibling.style.display === 'none' ? 'block' : 'none';"
+                        title="Exportar Reporte Motivos">
+                        <i class="fa-solid fa-file"></i>
+                    </button>
+
+                    <div class="btn-group-vertical export-options"
+                        style="display: none; position: absolute; bottom: 3%; left: 50%; transform: translateX(-50%); z-index: 1000;">
+                        <button class="btn btn-primary rounded-circle mb-2"
+                            style="width: 40px; height: 40px;"
+                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </button>
+                        <button class="btn btn-success rounded-circle"
+                            style="width: 40px; height: 40px;"
+                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=excel'">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
@@ -59,29 +82,7 @@ $TotalPaginas = ceil($totalMotivos / $limite);
                             <th class='text-center w-20'></th>
                             <th class='text-center w-20'><?php include 'funciones/paginacion.php'; ?></th>
                             <th class='text-center w-20'>
-                                <div class="floating-button text-center" style="position: relative;">
-                                    <button class="btn btn-danger rounded-circle"
-                                        style="width: 60px; height: 60px;"
-                                        onclick="this.nextElementSibling.style.display = 
-                                        this.nextElementSibling.style.display === 'none' ? 'block' : 'none';"
-                                        title="Exportar Reporte Motivos">
-                                        <i class="fa-solid fa-file"></i>
-                                    </button>
-                            
-                                    <div class="btn-group-vertical export-options"
-                                        style="display: none; position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 1000;">
-                                        <button class="btn btn-primary rounded-circle mb-2"
-                                            style="width: 60px; height: 60px;"
-                                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=pdf'">
-                                            <i class="fa-solid fa-file-pdf"></i>
-                                        </button>
-                                        <button class="btn btn-success rounded-circle"
-                                            style="width: 60px; height: 60px;"
-                                            onclick="window.location.href='../controller/motivos/Exportar_motivos.php?tipo=excel'">
-                                            <i class="fa-solid fa-file-excel"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                
                             </th>
                         </tr>
                     </tfoot>

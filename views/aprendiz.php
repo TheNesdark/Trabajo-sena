@@ -26,6 +26,19 @@ $aprendices = listarAprendices($pagina, $limite);
                 <button type="button" class="btn w-100" style="background-color: #50c8c6; color: #fff;" data-bs-toggle="modal" data-bs-target="#addAprendizModal">
                     <i class="fa-solid fa-plus"></i> Añadir Aprendiz
                 </button>
+                <div class="floating-button text-center" style="position: relative; margin-left: 2%">
+                    <button class="btn btn-danger rounded-circle" style="width: 40px; height: 40px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Aprendices">
+                        <i class="fa-solid fa-file"></i>
+                    </button>
+                    <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 90%; right: 0;">
+                        <button class="btn btn-primary rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Aprendices/Exportar_Aprendices.php?tipo=pdf'">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </button>
+                        <button class="btn btn-success rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Aprendices/Exportar_Aprendices.php?tipo=excel'">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
@@ -68,19 +81,6 @@ $aprendices = listarAprendices($pagina, $limite);
                         <tr>
                             <th colspan="8" class='text-center w-20'>
                                 <?php include 'funciones/paginacion.php'; ?>
-                                <div class="floating-button text-center" style="position: relative;">
-                                    <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Aprendices">
-                                        <i class="fa-solid fa-file"></i>
-                                    </button>
-                                    <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-                                        <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Aprendices/Exportar_Aprendices.php?tipo=pdf'">
-                                            <i class="fa-solid fa-file-pdf"></i>
-                                        </button>
-                                        <button class="btn btn-success rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Aprendices/Exportar_Aprendices.php?tipo=excel'">
-                                            <i class="fa-solid fa-file-excel"></i>
-                                        </button>
-                                    </div>
-                                </div>
                             </th>
                         </tr>
                     </tfoot>

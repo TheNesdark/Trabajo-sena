@@ -450,10 +450,10 @@
     }
 
     thead th {
-        font-size: 0.65rem; /* Tamaño reducido en móvil */
+        font-size: 0.70rem; /* Tamaño reducido en móvil */
     }
     tbody td{
-        font-size: 0.65rem;
+        font-size: 0.70rem;
     }
 }
 
