@@ -3,6 +3,81 @@ include '../controller/Aprendices/Listar_Aprendices.php';
 include '../controller/Fichas/Listar_Fichas.php';
 include '../controller/Motivos/Listar_Motivos.php';
 include 'header.php';
+
+
+if (!isset($_GET['nficha'])) {
+    $fichas = listarFichas(1, PHP_INT_MAX); 
+    ?>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seleccionar Ficha</title>
+        <style>
+            .form-section-title {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: #50c8c6;
+                margin-bottom: 1rem;
+            }
+            .bg-form {
+                background: #fff;
+                border-radius: 1rem;
+                box-shadow: 0 2px 16px 0 rgba(80,200,198,0.08);
+                padding: 2rem 2.5rem;
+            }
+            .btn-primary, .btn-primary:focus {
+                background-color: #50c8c6;
+                border-color: #50c8c6;
+            }
+            .btn-primary:hover {
+                background-color: #3bb3b1;
+                border-color: #3bb3b1;
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class="container py-5 min-vh-100">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="bg-form">
+                        <h4 class="mb-4 text-center form-section-title">
+                            <i class="fa-solid fa-list"></i> Seleccionar Ficha
+                        </h4>
+                        <form method="GET" action="">
+                            <div class="mb-4">
+                                <label class="form-label" for="nficha">
+                                    <i class="fa-solid fa-id-card"></i> Ficha
+                                </label>
+                                <select name="nficha" id="nficha" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione una ficha</option>
+                                    <?php
+                                    if (!$fichas) {
+                                        echo "<option value=''>No hay fichas disponibles</option>";
+                                    } else {
+                                        foreach ($fichas as $ficha) {
+                                            echo "<option value='{$ficha['nficha']}'>{$ficha['nficha']} - {$ficha['programa']}</option>";
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa-solid fa-arrow-right"></i> Continuar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -62,14 +137,21 @@ include 'header.php';
                     <form method="POST" action="../controller/Reportes/Añadir_Reportes.php">
                         <div class="row g-4">
                             <div class="col-md-4">
+                                <label class="form-label" for="nficha">
+                                    <i class="fa-solid fa-id-card"></i> Número de Ficha
+                                </label>
+                                <input type="text" class="form-control" name="nficha" id="nficha" value="<?php echo htmlspecialchars($_GET['nficha']); ?>" readonly>
+                            </div>
+                            <div class="col-md-4">
                                 <label class="form-label" for="idaprendiz">
                                     <i class="fa-solid fa-user-graduate"></i> Aprendiz
                                 </label>
-                                <select name="idaprendiz" id="idaprendiz" class="form-select" required>
+                                <select name="idaprendiz" id="idaprendiz" class="form-select select2" required>
                                     <option value="" disabled selected>Seleccione un aprendiz</option>
                                     <?php
-                                    $aprendices = listarAprendices(1, PHP_INT_MAX);
-                                    if (!$aprendices) {
+                                    $nficha = $_GET['nficha']; 
+                                    $aprendices = listarAprendizFicha($nficha);
+                                    if (!is_array($aprendices) || empty($aprendices)) {
                                         echo "<option value=''>No hay aprendices disponibles</option>";
                                     } else {
                                         foreach ($aprendices as $aprendiz) {
@@ -78,24 +160,6 @@ include 'header.php';
                                     }
                                     ?>
                                 </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label" for="nficha">
-                                    <i class="fa-solid fa-list-ol"></i> Ficha
-                                </label>
-                                <select name="nficha" id="nficha" class="form-select" required>
-                                    <option value="" disabled selected>Seleccione una ficha</option>
-                                    <?php
-                                    $fichas = listarFichas(1, PHP_INT_MAX);
-                                    if (!$fichas) {
-                                        echo "<option value=''>No hay fichas disponibles</option>";
-                                    } else {
-                                        foreach ($fichas as $ficha) {
-                                            echo "<option value='{$ficha['nficha']}'>{$ficha['nficha']}</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>   
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">
@@ -152,6 +216,6 @@ include 'header.php';
             </div>
         </div>
     </div>
+
 </body>
 </html>
-<?php include 'footer.php'; ?>

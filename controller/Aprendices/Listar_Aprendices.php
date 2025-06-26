@@ -26,4 +26,14 @@ function listarAprendices($pagina, $limite) {
     }
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function ListarAprendizFicha($nficha) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM aprendiz WHERE nficha = ?");
+    $stmt->execute([$nficha]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
+
+
+
