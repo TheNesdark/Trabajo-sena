@@ -74,7 +74,7 @@ $reportes = listarReportes($pagina, $limite);
                           <button class="btn btn-sm" style="background: #50c8c6" type="button" id="dropdownMenuButton<?php echo $reporte['idreporte']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-sort"></i>
                           </button>
-                          <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton<?php echo $reporte['idreporte']; ?>">
+                          <ul class="dropdown-menu" style="min-width: 110px; max-width: 180px;"  aria-labelledby="dropdownMenuButton<?php echo $reporte['idreporte']; ?>">
                             <li>
                               <a class="dropdown-item text-warning" href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>">
                                 <i class="fas fa-edit"></i> Editar
