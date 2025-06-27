@@ -1,14 +1,16 @@
 <?php
-//railway.com/project/31f41bdb-f3c5-4026-86b3-6ff0a2a14327?environmentId=a2c55d63-0860-4561-983d-01b3424659fc
-$host = 'localhost';
-$db = 'desercion';
+$host = 'ballast.proxy.rlwy.net';
+$port = 47983;
+$dbname = 'railway';
 $user = 'root';
-$pass = '';
-$port = 3306;
+$pass = 'IDRSUAqrTVmtEahZwokeSfgcqSGazfov';
+
 try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $user, $pass);
+    // Opcional: activar errores como excepciones
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "✅ Conexión exitosa con PDO";
 } catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+    echo "❌ Error de conexión: " . $e->getMessage();
 }
 ?>
