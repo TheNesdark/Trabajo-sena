@@ -22,9 +22,25 @@ $TotalPaginas = ceil($totalAcciones / $limite);
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
             <h1><i class="fa-solid fa-bolt" style="color: #50c8c6"></i> Lista de Acciones </h1>
         </div>
-        <div class="row mb-2" style="max-width: 98%; margin:auto;">
+    <div class="row mb-2" style="max-width: 98%; margin:auto; align-items: center;">
+        <div class="col d-flex align-items-center">
             <?php include 'funciones/busquedas.php'; ?>
+            <div class="floating-button ms-3" style="position: relative;">
+                <button class="btn btn-danger rounded-circle" style="width: 40px; height: 40px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Acciones">
+                    <i class="fa-solid fa-file"></i>
+                </button>
+                <div id="export-options" class="btn-group-vertical flex-column-reverse"
+                     style="display: none; position: absolute; bottom: 50px; right: 0; z-index: 10; flex-direction: column-reverse;">
+                    <button class="btn btn-primary rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=pdf'">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </button>
+                    <button class="btn btn-success rounded-circle" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=excel'">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </button>
+                </div>
+            </div>
         </div>
+    </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">
@@ -55,18 +71,6 @@ $TotalPaginas = ceil($totalAcciones / $limite);
             <?php include 'funciones/paginacion.php'; ?>
         </div>
     </div>
-    <div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">
-        <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Acciones">
-            <i class="fa-solid fa-file"></i>
-        </button>
-        <div id="export-options" class="btn-group-vertical" style="display: none; position: absolute; bottom: 70px; right: 0;">
-            <button class="btn btn-primary rounded-circle mb-2" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=pdf'">
-                <i class="fa-solid fa-file-pdf"></i>
-            </button>
-            <button class="btn btn-success rounded-circle" style="width: 60px; height: 60px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=excel'">
-                <i class="fa-solid fa-file-excel"></i>
-            </button>
-        </div>
     </div>
 </body>
 </html>
