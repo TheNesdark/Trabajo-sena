@@ -1,17 +1,20 @@
 <nav aria-label="Page navigation mb-5">
     <ul class="pagination justify-content-center mt-3">
-        <li class="page-item <?= ($pagina <= 1) ? 'disabled' : '' ?>">
-            <a class="page-link" href="?pagina=<?= $pagina - 1 ?><?= isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '' ?>" tabindex="-1" aria-disabled="<?= ($pagina <= 1) ? 'true' : 'false' ?>">← Anterior</a>
-        </li>
 
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">
-                <?= $pagina ?>
-            </span>
-        </li>
-
-        <li class="page-item <?= ($pagina >= $TotalPaginas) ? 'disabled' : '' ?>">
-            <a class="page-link" href="?pagina=<?= $pagina + 1 ?><?= isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '' ?>">Siguiente →</a>
-        </li>
+        <?php
+        echo '<li class="page-item ' . (($pagina == 1) ? 'disabled' : '') . '">
+            <a class="page-link" href="?pagina=1' . (isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '') . '">Comienzo</a>
+              </li>';
+        if ($pagina - 1 >= 1) {
+            echo '<li class="page-item"><a class="page-link" href="?pagina=' . ($pagina - 1) . (isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '') . '">' . ($pagina - 1) . '</a></li>';
+        }
+        echo '<li class="page-item active"><span class="page-link">' . $pagina . '</span></li>';
+        if ($pagina + 1 <= $TotalPaginas) {
+            echo '<li class="page-item"><a class="page-link" href="?pagina=' . ($pagina + 1) . (isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '') . '">' . ($pagina + 1) . '</a></li>';
+        }
+        echo '<li class="page-item ' . (($pagina == $TotalPaginas) ? 'disabled' : '') . '">
+            <a class="page-link" href="?pagina=' . $TotalPaginas . (isset($_GET['busqueda']) && !empty($_GET['busqueda']) ? '&busqueda=' . urlencode($_GET['busqueda']) : '') . '">Final</a>
+              </li>';
+        ?>
     </ul>
 </nav>
