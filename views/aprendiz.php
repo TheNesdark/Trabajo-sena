@@ -20,7 +20,7 @@ $TotalPaginas = ceil($totalAprendices / $limite);
     <div id="alerta"></div>
     <div class="container mt-4">
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
-            <h1 class="text-primary">
+            <h1>
                 <i class="fa-solid fa-graduation-cap" style="color: #50c8c6"></i> Lista de Aprendices
             </h1>
         </div>
