@@ -8,9 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $celular = $_POST['celular'];
     $email = $_POST['email'];
     $direccion = $_POST['direccion'];
+    $nficha = $_POST['nficha'];
     try {
-        $stmt = $pdo->prepare("INSERT INTO aprendiz (idaprendiz, tipodoc, nombres, apellidos, celular, email, direccion) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$idaprendiz, $tipodoc, $nombres, $apellidos, $celular, $email, $direccion]);
+        $stmt = $pdo->prepare("INSERT INTO aprendiz (idaprendiz, tipodoc, nombres, apellidos, celular, email, direccion, nficha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$idaprendiz, $tipodoc, $nombres, $apellidos, $celular, $email, $direccion, $nficha]);
         header("Location: ../../views/aprendiz.php?mensaje=agregado");
         exit();
     } catch (PDOException $e) {

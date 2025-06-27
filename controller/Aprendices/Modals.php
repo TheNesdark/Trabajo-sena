@@ -2,6 +2,11 @@
 <div class="modal fade" id="addAprendizModal" tabindex="-1" aria-labelledby="addAprendizModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <?php
+            // Obtener las fichas para el select
+            require_once '../controller/Fichas/Listar_Fichas.php';
+            $fichas = listarFichas(1, PHP_INT_MAX);
+            ?>
             <form method="POST" action="../controller/Aprendices/Añadir_Aprendices.php" onsubmit="return verificarAprendizExistente();">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addAprendizModalLabel">Añadir Aprendiz</h5>
@@ -44,6 +49,17 @@
                     <div class="mb-3">
                         <label class="form-label">Dirección</label>
                         <input type="text" class="form-control" name="direccion">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ficha</label>
+                        <select class="form-select" name="nficha" required>
+                            <option value="" disabled selected>Seleccione una ficha</option>
+                            <?php foreach ($fichas as $ficha): ?>
+                                <option value="<?php echo htmlspecialchars($ficha['nficha']); ?>">
+                                    <?php echo htmlspecialchars($ficha['nficha'] . ' - ' . $ficha['nombreprograma']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
