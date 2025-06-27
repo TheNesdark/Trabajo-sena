@@ -161,7 +161,7 @@ $motivos = listarMotivos(1,PHP_INT_MAX);
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-4">
-                        <a href="listar_reportes.php" class="btn btn-secondary me-2">
+                        <a href="reportes.php" class="btn btn-secondary me-2">
                             <i class="fa-solid fa-ban"></i> Cancelar
                         </a>
                         <button type="submit" class="btn btn-primary">
