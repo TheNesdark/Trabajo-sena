@@ -1,3 +1,4 @@
+<?php include 'views/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
     <link href="/trabajo-sena/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include 'views/header.php'; ?>
 <div class="container mt-5">
     <div class="hero-section">
                 <h1><i class="fa-solid fa-headset"></i> Sistema Deserción</h1>
