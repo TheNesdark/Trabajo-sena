@@ -18,6 +18,7 @@ function listarAprendices($pagina, $limite) {
                 OR email LIKE :busqueda
                 OR direccion LIKE :busqueda
                 OR nficha LIKE :busqueda
+                ORDER BY nficha DESC
                 LIMIT $offset, $limite");
         $stmt->execute([':busqueda' => '%' . $busqueda . '%']);
  
