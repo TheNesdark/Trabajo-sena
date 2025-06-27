@@ -2,7 +2,12 @@
 include 'header.php'; 
 include '../controller/Acciones/Modals.php';
 include '../controller/Acciones/Listar_Acciones.php';
+
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 $acciones = listarAcciones($pagina, $limite);
+$totalAcciones = count(listarAcciones(1, PHP_INT_MAX));
+$TotalPaginas = ceil($totalAcciones / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,7 +52,7 @@ $acciones = listarAcciones($pagina, $limite);
                     </tbody>
                 </table>
             </div>
-            <?php include 'funciones/paginacion.php'?>
+            <?php include 'funciones/paginacion.php'; ?>
         </div>
     </div>
     <div class="floating-button mb-5" style="position: fixed; bottom: 40px; right: 20px;">

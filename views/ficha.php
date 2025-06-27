@@ -2,7 +2,12 @@
 include 'header.php';
 include '../controller/Fichas/Listar_Fichas.php';
 include '../controller/Fichas/Modals.php';
+
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 $fichas = listarFichas($pagina, $limite);
+$totalFichas = count(ListarFichas(1, PHP_INT_MAX));
+$TotalPaginas = ceil($totalFichas / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">

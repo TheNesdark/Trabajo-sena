@@ -2,7 +2,11 @@
 include 'header.php';
 include '../controller/Reportes/Listar_Reportes.php';
 
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 $reportes = listarReportes($pagina, $limite);
+$totalReportes = count(listarReportes(1, PHP_INT_MAX));
+$TotalPaginas = ceil($totalReportes / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">

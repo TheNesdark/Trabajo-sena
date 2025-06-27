@@ -3,7 +3,11 @@ include 'header.php';
 include '../controller/Aprendices/Modals.php';
 include '../controller/Aprendices/Listar_Aprendices.php';
 
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 $aprendices = listarAprendices($pagina, $limite);
+$totalAprendices = count(listarAprendices(1, PHP_INT_MAX));
+$TotalPaginas = ceil($totalAprendices / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +20,7 @@ $aprendices = listarAprendices($pagina, $limite);
     <div id="alerta"></div>
     <div class="container mt-4">
         <div class="mb-2 mt-4 mrb-4 d-flex justify-content-center">
-            <h1>
+            <h1 class="text-primary">
                 <i class="fa-solid fa-graduation-cap" style="color: #50c8c6"></i> Lista de Aprendices
             </h1>
         </div>
@@ -87,13 +91,13 @@ $aprendices = listarAprendices($pagina, $limite);
 <script>
 <?php include 'funciones/Alertas.php'; ?>
 function CargarDatos(id, tipodoc, nombres, apellidos, celular, email, direccion) {
-        document.getElementById('editIdAprendiz').value = id;
-        document.getElementById('editTipodoc').value = tipodoc;
-        document.getElementById('editNombres').value = nombres;
-        document.getElementById('editApellidos').value = apellidos;
-        document.getElementById('editCelular').value = celular;
-        document.getElementById('editEmail').value = email;
-        document.getElementById('editDireccion').value = direccion;
+    document.getElementById('editIdAprendiz').value = id;
+    document.getElementById('editTipodoc').value = tipodoc;
+    document.getElementById('editNombres').value = nombres;
+    document.getElementById('editApellidos').value = apellidos;
+    document.getElementById('editCelular').value = celular;
+    document.getElementById('editEmail').value = email;
+    document.getElementById('editDireccion').value = direccion;
 }
 function verificarAprendizExistente() {
     const documento = document.getElementById('documento').value.trim();
@@ -104,10 +108,8 @@ function verificarAprendizExistente() {
         alertContainer.innerHTML = '<div class="alert alert-danger">El Aprendiz ya está registrado.</div>';
         return false;
     }
-
     return true;
 }
-
 </script>
 </body>
 </html>

@@ -2,8 +2,12 @@
 include 'header.php'; 
 include '../controller/Programa/Modals.php';
 include '../controller/Programa/Listar_Programa.php';
-$programas = listarProgramas($pagina, $limite);
 
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
+$programas = listarProgramas($pagina, $limite);
+$totalProgramas = count(listarProgramas(1, PHP_INT_MAX));
+$TotalPaginas = ceil($totalProgramas / $limite);
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -3,6 +3,8 @@ include 'header.php';
 include '../controller/Usuarios/Listar_Usuarios.php';
 include '../controller/Usuarios/Modals.php';
 
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$limite = 10;
 $usuarios = listarUsuarios($pagina, $limite);
 $Totalusuarios = count(listarUsuarios(1, PHP_INT_MAX));
 $TotalPaginas = ceil($Totalusuarios / $limite);
