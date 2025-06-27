@@ -74,27 +74,16 @@ $TotalPaginas = ceil($totalReportes / $limite);
                     <td class='text-center'><?php echo $reporte['estado']; ?></td>
                     <td class='text-center'><?php echo $reporte['fecha']; ?></td>
                     <td class="text-center">
-                        <div class="dropdown">
-                          <button class="btn btn-sm" style="background: #50c8c6" type="button" id="dropdownMenuButton<?php echo $reporte['idreporte']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-sort"></i>
-                          </button>
-                          <ul class="dropdown-menu" style="min-width: 110px; max-width: 180px;"  aria-labelledby="dropdownMenuButton<?php echo $reporte['idreporte']; ?>">
-                            <li>
-                              <a class="dropdown-item text-warning" href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>">
-                                <i class="fas fa-edit"></i> Editar
-                              </a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item text-danger" href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" onclick="return confirm('¿Está seguro de eliminar este reporte?');">
-                                <i class="fas fa-trash"></i> Eliminar
-                              </a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item text-info" href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>">
-                                <i class="fas fa-eye"></i> Accion
-                              </a>
-                            </li>
-                          </ul>
+                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-1">
+                            <a class="btn btn-warning btn-sm mb-1 mb-md-0" href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm mb-1 mb-md-0" href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" onclick="return confirm('¿Está seguro de eliminar este reporte?');" title="Eliminar">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <a class="btn btn-info btn-sm" href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Accion">
+                                <i class="fas fa-eye"></i>
+                            </a>
                         </div>
                     </td>
 
