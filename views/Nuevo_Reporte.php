@@ -35,6 +35,23 @@ if (!isset($_GET['nficha'])) {
                 background-color: #3bb3b1;
                 border-color: #3bb3b1;
             }
+            .custom-select {
+                background-color: #f8f9fa;
+                border: 2px solid #50c8c6; 
+                border-radius: 12px;       
+                padding: 10px 12px;
+                color: #333;
+                font-weight: 500;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+                transition: border-color 0.5s, box-shadow 0.3s;
+            }
+  
+            .custom-select:focus {
+                background-color: rgb(80, 200, 198, 0.25);
+                border-color: #3abdb9;
+                box-shadow: 0 0 5px rgba(58, 189, 185, 0.5);
+                outline: none;
+            }
         </style>
     </head>
     <body class="bg-light">
@@ -50,7 +67,7 @@ if (!isset($_GET['nficha'])) {
                                 <label class="form-label" for="nficha">
                                     <i class="fa-solid fa-id-card"></i> Ficha
                                 </label>
-                                <select name="nficha" id="nficha" class="form-select" required>
+                                <select name="nficha" id="nficha" class="form-select custom-select" required>
                                     <option value="" disabled selected>Seleccione una ficha</option>
                                     <?php
                                     if (!$fichas) {
@@ -140,7 +157,7 @@ if (!isset($_GET['nficha'])) {
                                 <label class="form-label" for="nficha">
                                     <i class="fa-solid fa-id-card"></i> Número de Ficha
                                 </label>
-                                <input type="text" class="form-control" name="nficha" id="nficha" value="<?php echo htmlspecialchars($_GET['nficha']); ?>" readonly>
+                                <input type="text" class="form-control custom-select" name="nficha" id="nficha" value="<?php echo htmlspecialchars($_GET['nficha']); ?>" readonly>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label" for="idaprendiz">
@@ -204,7 +221,7 @@ if (!isset($_GET['nficha'])) {
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4">
-                            <button type="reset" class="btn btn-secondary me-2">
+                            <button type="reset" class="btn btn-danger me-2">
                                 <i class="fa-solid fa-eraser"></i> Limpiar
                             </button>
                             <button type="submit" class="btn btn-primary">

@@ -1,8 +1,8 @@
 <style>
     .custom-select {
-    background-color: #f8f9fa; /* color claro */
-    border: 2px solid #50c8c6; /* borde turquesa */
-    border-radius: 12px;       /* bordes redondeados */
+    background-color: #f8f9fa;
+    border: 2px solid #50c8c6; 
+    border-radius: 12px;       
     padding: 10px 12px;
     color: #333;
     font-weight: 500;
@@ -22,7 +22,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <?php
-            // Obtener las fichas para el select
             require_once '../controller/Fichas/Listar_Fichas.php';
             $fichas = listarFichas(1, PHP_INT_MAX);
             ?>
@@ -103,7 +102,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Tipo de documento</label>
-                        <select class="form-select" id="editTipodoc" name="tipodoc" required>
+                        <select class="form-select custom-select" id="editTipodoc" name="tipodoc" required>
                             <option value="" disabled>Seleccione un tipo de documento</option>
                             <option value="CC">Cédula de Ciudadanía</option>
                             <option value="TI">Tarjeta de Identidad</option>
@@ -114,32 +113,32 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Documento</label>
-                        <input type="text" class="form-control" id="editIdAprendiz" name="idaprendiz" readonly>
+                        <input type="text" class="form-control custom-select" id="editIdAprendiz" name="idaprendiz" readonly>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="editNombres" name="nombres">
+                        <input type="text" class="form-control custom-select" id="editNombres" name="nombres">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="editApellidos" name="apellidos">
+                        <input type="text" class="form-control custom-select" id="editApellidos" name="apellidos">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Celular</label>
-                        <input type="text" class="form-control" id="editCelular" name="celular">
+                        <input type="text" class="form-control custom-select" id="editCelular" name="celular">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="editEmail" name="email">
+                        <input type="email" class="form-control custom-select" id="editEmail" name="email">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="editDireccion" name="direccion">
+                        <input type="text" class="form-control custom-select" id="editDireccion" name="direccion">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn" style="background: #50c8c6;">Guardar Cambios</button>
                 </div>
             </form>
         </div>
