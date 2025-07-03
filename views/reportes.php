@@ -25,7 +25,7 @@ $TotalPaginas = ceil($totalReportes / $limite);
     <div class="row mb-2" style="max-width: 98%; margin:auto;">
         <?php include 'funciones/busquedas.php'; ?>
         <div class="col-md-3 col-12 d-flex justify-content-md-end justify-content-center">
-            <a href="/Trabajo-sena/views/Nuevo_Reporte.php" class="btn w-100" style="background-color: #50c8c6; color: #fff;">
+            <a href="/trabajo-sena/views/Nuevo_Reporte.php" class="btn w-100" style="background-color: #50c8c6; color: #fff;">
                 <i class="fa-solid fa-plus"></i> Añadir Reporte
             </a>
             <div class="floating-button text-center" style="position: relative; margin-left: 2%">
@@ -75,13 +75,13 @@ $TotalPaginas = ceil($totalReportes / $limite);
                     <td class='text-center'><?php echo $reporte['fecha']; ?></td>
                     <td class="text-center">
                         <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-1">
-                            <a class="btn btn-warning btn-sm mb-1 mb-md-0" href="/Trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Editar">
+                            <a class="btn btn-warning btn-sm mb-1 mb-md-0" href="/trabajo-sena/views/editar_reporte.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger btn-sm mb-1 mb-md-0" href="/Trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" onclick="return confirm('¿Está seguro de eliminar este reporte?');" title="Eliminar">
+                            <a class="btn btn-danger btn-sm mb-1 mb-md-0" href="/trabajo-sena/controller/Reportes/Eliminar_Reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" onclick="return confirm('¿Está seguro de eliminar este reporte?');" title="Eliminar">
                                 <i class="fas fa-trash"></i>
                             </a>
-                            <a class="btn btn-info btn-sm" href="/Trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Accion">
+                            <a class="btn btn-info btn-sm" href="/trabajo-sena/views/acciones_reportes.php?idreporte=<?php echo $reporte['idreporte']; ?>" title="Accion">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </div>

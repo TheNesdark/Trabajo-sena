@@ -22,17 +22,17 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/Trabajo-sena/views/reportes.php">
+                            <a class="nav-link" href="/trabajo-sena/views/reportes.php">
                                 <i class="fas fa-chart-line"></i>Ver Reportes
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Trabajo-sena/views/Nuevo_Reporte.php">
+                            <a class="nav-link" href="/trabajo-sena/views/Nuevo_Reporte.php">
                                 <i class="fas fa-plus-circle"></i>Crear Reporte
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Trabajo-sena/controller/Login/Cerrar.php">
+                            <a class="nav-link" href="/trabajo-sena/controller/Login/Cerrar.php">
                                 <i class="fas fa-sign-out-alt me-1"></i> Cerrar Sesión
                             </a>
                         </li>
