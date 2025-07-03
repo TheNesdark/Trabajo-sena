@@ -27,5 +27,5 @@ let alerta = document.getElementById('alerta');
         setTimeout(() => {
             alerta.innerHTML = '';
         }, 1000);
-    }, 5000);
+    }, 3000);
 <?php endif; ?>
