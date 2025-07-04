@@ -128,6 +128,7 @@ function CargarDatos(id, descripcion) {
 }
 </script>
 </body>
-</html>
 <?php include 'footer.php'; ?>
+</html>
+
 

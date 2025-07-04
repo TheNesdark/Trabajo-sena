@@ -91,6 +91,6 @@ function cargarDatos(idmotivo, descripcion) {
     document.getElementById('editDescripcion').value = descripcion;
 }
 </script>
-<?php include 'footer.php'; ?>
 </body>
+<?php include 'footer.php'; ?>
 </html>

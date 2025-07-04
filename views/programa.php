@@ -82,6 +82,6 @@ function CargarDatos(id, nombre) {
     document.getElementById('editNombre').value = nombre;
 }
 </script>
-<?php include 'footer.php'; ?>
 </body>
+<?php include 'footer.php'; ?>
 </html>

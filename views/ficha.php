@@ -97,5 +97,5 @@ function verificarFichaExistente() {
 }
 </script>
 </body>
-</html>
 <?php include 'footer.php'; ?>
+</html>

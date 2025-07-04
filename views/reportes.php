@@ -99,6 +99,7 @@ $TotalPaginas = ceil($totalReportes / $limite);
 <script>
     <?php include 'funciones/Alertas.php'; ?>
 </script>
-</html>
 <?php include 'footer.php'; ?>
+</html>
+
 

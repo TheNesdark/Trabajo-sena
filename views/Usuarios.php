@@ -100,5 +100,5 @@ function verificarUsuarioExistente() {
 }
 </script>
 </body>
-</html>
 <?php include 'footer.php'; ?>
+</html>
