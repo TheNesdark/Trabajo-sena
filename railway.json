@@ -1,4 +1,9 @@
 {
-  "build": "composer install || true",
-  "start": "php -S 0.0.0.0:$PORT -t ."
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "composer install || true"
+  },
+  "start": {
+    "cmd": "php -S 0.0.0.0:$PORT -t ."
+  }
 }
