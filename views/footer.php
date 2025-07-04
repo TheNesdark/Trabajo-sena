@@ -12,8 +12,8 @@
     </div>
 
     <div class="footer-links">
-      <a href="#" class="footer-link"><i class="fas fa-tachometer-alt"></i> Panel</a>
-      <a href="#" class="footer-link"><i class="fas fa-users"></i> Usuarios</a>
+      <a href="\trabajo-sena\index.php" class="footer-link"><i class="fas fa-tachometer-alt"></i> Panel</a>
+      <a href="\trabajo-sena\views\usuarios.php" class="footer-link"><i class="fas fa-users"></i> Usuarios</a>
       <a href="#" class="footer-link"><i class="fas fa-headset"></i> Soporte</a>
     </div>
 
