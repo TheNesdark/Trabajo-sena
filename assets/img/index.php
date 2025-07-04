@@ -63,10 +63,8 @@
                 </div>
                 <a href="crear_bd.php" class="btn btn-primary">Crear Base de Datos</a>
                 <a href="borrar_bd.php" class="btn btn-danger">Borrar Base de Datos</a>
-    </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <?php include 'views/footer.php'; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

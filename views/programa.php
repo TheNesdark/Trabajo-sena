@@ -45,7 +45,7 @@ $TotalPaginas = ceil($totalProgramas / $limite);
         </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
-                <table class="table table-bordered mb-0">
+                <table class="table table-bordered mb-5">
                     <thead>
                         <tr>
                             <th class='text-center w-20'><i class="fa-solid fa-hashtag"></i> ID</th>
@@ -82,6 +82,6 @@ function CargarDatos(id, nombre) {
     document.getElementById('editNombre').value = nombre;
 }
 </script>
+<?php include 'footer.php'; ?>
 </body>
 </html>
-<?php include 'footer.php'; ?>

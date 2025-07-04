@@ -17,14 +17,11 @@ session_start();
             background-position: center;
             background-repeat: no-repeat;
         }
-        .fondo{
-                background-color: rgba(0, 0, 0, 0.5);
-            }
     </style>
 </head>
 <body class="bg-light">
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="card shadow p-4 fondo" style="max-width: 400px; width: 100%;">
+        <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
             <div class="text-center mb-4">
                 <i class="bi bi-person-circle" style="font-size: 3rem; color: #50c8c6;"></i>
                 <h3 class="mt-2">Iniciar Sesión</h3>
