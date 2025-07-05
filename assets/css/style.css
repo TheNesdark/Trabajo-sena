@@ -5,7 +5,7 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            margin-bottom: 50px;
+            
         }
         
         .navbar-custom {
@@ -200,6 +200,10 @@
 
 /* index */
 
+.container {
+    flex: 1;
+  }
+
 .main-container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
@@ -300,6 +304,41 @@
     transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(52, 123, 0, 0.6);
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+header,
+.navbar,
+.navbar-custom {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body > *:first-child {
+  margin-top: 0 !important;
+}
+
+
+
+
+
+
+
 
 
 

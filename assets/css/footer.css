@@ -1,18 +1,17 @@
-/* Asegurar que no haya espacios en blanco después del footer */
+﻿/* Reset y configuración general */
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  height: 100%;
-  overflow-x: hidden;
+  flex: 1;
 }
 
 /* === Footer === */
@@ -24,9 +23,7 @@ body {
   margin-top: auto;
   position: relative;
   overflow: hidden;
-  /* Eliminar cualquier margen inferior que cause espacios */
   margin-bottom: 0 !important;
-  /* Asegurar que no haya espacios después del footer */
   flex-shrink: 0;
 }
 
@@ -43,7 +40,7 @@ body {
   z-index: 1;
 }
 
-/* Línea de onda animada abajo del footer */
+/* Línea de onda animada arriba del footer */
 .footer-normal::after {
   content: '';
   position: absolute;
@@ -76,7 +73,6 @@ body {
   width: 100%;
   position: relative;
   z-index: 3;
-  /* Eliminar cualquier margin que pueda causar espacios */
   margin: 0;
 }
 
@@ -145,46 +141,38 @@ body {
   color: rgba(0, 0, 0, 0.8);
 }
 
-/* Asegurar que el contenedor principal tome todo el espacio disponible */
-.container {
-  flex: 1;
-}
-
-/* Eliminar cualquier espacio después del body */
-body::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* Asegurar que no haya overflow que cause espacios */
-html {
-  overflow-x: hidden;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .footer-content {
-      flex-direction: column;
-      gap: 10px;
-      text-align: center;
-      margin: 0;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin: 0;
   }
 
   .footer-links {
-      justify-content: center;
+    justify-content: center;
   }
 
   .footer-link {
-      font-size: 0.85rem;
-      padding: 4px 10px;
+    font-size: 0.85rem;
+    padding: 4px 10px;
   }
 
   .footer-info {
-      font-size: 0.85rem;
+    font-size: 0.85rem;
   }
 
   .version-badge {
-      font-size: 0.75rem;
+    font-size: 0.75rem;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 0 !important;
+  }
+}
+
+
+

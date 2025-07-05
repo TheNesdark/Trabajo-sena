@@ -1,4 +1,4 @@
-<footer class="footer-normal">
+﻿<footer class="footer-normal">
   <div class="footer-content">
     <div class="footer-info">
       <img src="/trabajo-sena/assets/img/logo-sena-negro-png-2022.png" alt="logo" width="30" height="30">
@@ -17,6 +17,3 @@
   </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
