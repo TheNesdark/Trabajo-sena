@@ -1,4 +1,4 @@
-<?php include 'views/header.php'; ?>
+﻿<?php include 'views/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,10 +61,11 @@
 
                     </div>
                 </div>
-                <a href="crear_bd.php" class="btn btn-primary">Crear Base de Datos</a>
-                <a href="borrar_bd.php" class="btn btn-danger">Borrar Base de Datos</a>
+                <!-- <a href="crear_bd.php" class="btn btn-primary">Crear Base de Datos</a>
+                <a href="borrar_bd.php" class="btn btn-danger">Borrar Base de Datos</a> -->
+    </div>
 </div>
-<?php include 'views/footer.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<?php include 'views/footer.php'; ?>
 </html>

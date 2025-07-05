@@ -25,22 +25,7 @@ $TotalPaginas = ceil($totalAcciones / $limite);
     <div class="row mb-2" style="max-width: 98%; margin:auto; align-items: center;">
         <div class="col d-flex align-items-center">
             <?php include 'funciones/busquedas.php'; ?>
-            <div class="floating-button ms-3" style="position: relative;">
-                <button class="btn btn-danger rounded-circle" style="width: 40px; height: 40px;" onclick="document.getElementById('export-options').style.display = document.getElementById('export-options').style.display === 'none' ? 'block' : 'none';" title="Exportar Reporte Acciones">
-                    <i class="fa-solid fa-file"></i>
-                </button>
-                <div id="export-options" class="btn-group-vertical flex-column-reverse"
-                     style="display: none; position: absolute; bottom: 50px; right: 0; z-index: 10; flex-direction: column-reverse;">
-                    <button class="btn btn-primary rounded-circle mb-2" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=pdf'">
-                        <i class="fa-solid fa-file-pdf"></i>
-                    </button>
-                    <button class="btn btn-success rounded-circle" style="width: 40px; height: 40px; display: block;" onclick="window.location.href='../controller/Acciones/Exportar_acciones.php?tipo=excel'">
-                        <i class="fa-solid fa-file-excel"></i>
-                    </button>
-                </div>
-            </div>
         </div>
-    </div>
         <div class="table-container" style="max-width: 98%; margin:auto;">
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">
