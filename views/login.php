@@ -18,8 +18,8 @@ session_start();
             background-repeat: no-repeat;
         }
         .fondo{
-                background-color: rgba(0, 0, 0, 0.5);
-            }
+            background-color: rgba(255, 255, 255, 0.9);
+        }
     </style>
 </head>
 <body class="bg-light">
